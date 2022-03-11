@@ -3,41 +3,28 @@ import logo from './logo.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [color, setColor] = useState("green");
+  const [myStatus, setMyStatus] = useState(false);
+  const [products, setProducts] = useState([{id: 1, name: "A"}, {id:2, name: "B"}])
+  const [show, setShow] = useState(true);
 
+  const removeItem = (id) => {
+    const newProducts = products.filter(item => item.id !== id)
+    setProducts(newProducts) 
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div>
+        {show && <div>
+            Number: {count} <br />
+            <div style={{background: color, width: "40%", height: 100}}></div> <br />
+            Boolean: {myStatus ? "Da ket hon" : "Chua ket hon"} <br />
+            Arr: {products.map(item => <div key={item.id}>{item.name} <button onClick={() => removeItem(item.id)}>Delete</button></div>)}
+        </div>}
+        <button onClick={() => setCount(count - 1)}>Desc count</button>    
+        <button onClick={() => setCount(count + 1)}>Inc count</button>  <br/>
+        <button onClick={() => setColor("red")}>Change Color</button>  <br/>
+        <button onClick={() => setShow(!show)}>Hidden</button>    
     </div>
   )
 }
