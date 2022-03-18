@@ -5,7 +5,7 @@ import ShowInfo from './components/showInfo'
 
 import type { Person } from './types/person'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { list } from './api/products'
+import { create, list } from './api/products'
 import axios from 'axios'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
 import HomePages from './pages/HomePages'
@@ -14,17 +14,21 @@ import AdminLayout from './pages/layouts/AdminLayout'
 import DashboardPages from './pages/DashboardPages'
 import ProductsManager from './pages/ProductsManager'
 import ProductDetails from './pages/ProductDetails'
+import ProductAdd from './pages/ProductAdd'
 function App() {
   const [products, setProducts] = useState<{_id: number, name: string}[]>([])
   useEffect(() => {
     const getListProducts = async () => {
-      const {data} = await axios.get("http://localhost:3001/api/products")
-      console.log(data);
+      const {data} = await list();
       setProducts(data)
     }
     getListProducts()
   },[]) 
-  
+  const onHandleAdd = async (product: object) => {
+    console.log(product);
+    const {data} = await create(product)
+    setProducts([...products, data])
+  }
   return (
     <div className="App">
       <header>
@@ -40,8 +44,9 @@ function App() {
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>
               <Route index element={<HomePages />} />
-              <Route path='products' element={<ProductsPage />}>
-              </Route>
+              <Route path='products' element={<ProductsPage />} />
+              <Route path='products/add' element={<ProductAdd onAdd={onHandleAdd}/>} >
+            </Route>
           </Route>
           <Route path='admin' element={<AdminLayout />}>
                 <Route index element={<Navigate to="dashboard" />} />
