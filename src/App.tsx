@@ -1,61 +1,34 @@
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import ShowInfo from './components/showInfo'
-
-import type { Person } from './types/person'
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { create, list } from './api/products'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ProducList from './pages/ProducList'
+import AddProduct from './pages/AddProduct'
 import axios from 'axios'
-import WebsiteLayout from './pages/layouts/WebsiteLayout'
-import HomePages from './pages/HomePages'
-import ProductsPage from './pages/ProductsPage'
-import AdminLayout from './pages/layouts/AdminLayout'
-import DashboardPages from './pages/DashboardPages'
-import ProductsManager from './pages/ProductsManager'
-import ProductDetails from './pages/ProductDetails'
-import ProductAdd from './pages/ProductAdd'
+
+// import "boostrap/dist/css/boostrap.min.css"
+
 function App() {
-  const [products, setProducts] = useState<{_id: number, name: string}[]>([])
+  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState();
   useEffect(() => {
-    const getListProducts = async () => {
-      const {data} = await list();
+    const getProducts =async () => {
+      const {data} = await axios.get("http://localhost:3001/products")
       setProducts(data)
     }
-    getListProducts()
-  },[]) 
-  const onHandleAdd = async (product: object) => {
-    console.log(product);
-    const {data} = await create(product)
-    setProducts([...products, data])
-  }
+  })
   return (
     <div className="App">
-      <header>
-        <ul>
-          <li><NavLink to="/">Home page</NavLink></li>
-          <li><NavLink to="/products">Product</NavLink></li>
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><NavLink to="/admin">Admin</NavLink></li>
-          <li><NavLink to="/admin/products">Dashboard</NavLink></li>
-        </ul>
-      </header>
-      <main>
-        <Routes>
-          <Route path='/' element={<WebsiteLayout />}>
-              <Route index element={<HomePages />} />
-              <Route path='products' element={<ProductsPage />} />
-              <Route path='products/add' element={<ProductAdd onAdd={onHandleAdd}/>} >
-            </Route>
+      <Routes>
+        <Route path='/'>
+          <Route index element={<HomePage />} />
+          <Route path='products'>
+              <Route index element={<ProducList products={products} />}/>
+              <Route path='add' element={<AddProduct />}/>
           </Route>
-          <Route path='admin' element={<AdminLayout />}>
-                <Route index element={<Navigate to="dashboard" />} />
-                <Route path='dashboard' element={<DashboardPages />} />
-                <Route path='products' element={<ProductsManager />} />
-                <Route path='product/:id' element={<ProductDetails />} />
-          </Route>
-        </Routes>
-      </main>
+        </Route>
+      </Routes>
     </div>
   )
 }
