@@ -1,17 +1,20 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { ProductType } from '../types/products'
+import { useNavigate } from "react-router-dom"
 
 
 type AddProductProps = {
-    onAdd: () => void
+    onAdd: (product: ProductType) => void
 }
 const AddProduct = (props: AddProductProps) => {
     const {register, handleSubmit, formState: { errors}} = useForm<ProductType>()
-    const onSubmit = (product: ProductType) => {
-        console.log(product);
-        
+    const navigate = useNavigate();
+    const onSubmit: SubmitHandler<ProductType>= (productInput) => {
+        props.onAdd(productInput)
+        navigate("/products")
     }
+
   return (
     <div>
         <form className='col-4 offset-4' onSubmit={handleSubmit(onSubmit)}>

@@ -1,7 +1,24 @@
 {
-    "products": [
-        {"id": 1, "name": "San pham 1", "price": 200},
-        {"id": 2, "name": "San pham 2", "price": 300},
-        {"id": 3, "name": "San pham 3", "price": 400}
-    ]
+  "products": [
+    {
+      "name": "San pham 2 update lan 4",
+      "price": "9911",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "San pham 3",
+      "price": 400
+    },
+    {
+      "name": "san pham so 4",
+      "price": "22",
+      "id": 4
+    },
+    {
+      "name": "san pham moi",
+      "price": "99",
+      "id": 5
+    }
+  ]
 }

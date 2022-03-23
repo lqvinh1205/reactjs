@@ -1,10 +1,11 @@
+import { Link, useNavigate } from 'react-router-dom'
 import { ProductType } from '../types/products'
-
 type ProducListProps = {
-    products: ProductType[]
+    products: ProductType[],
+    onRemove: (id: number) => void
 }
 
-const ProducList = ({products}: ProducListProps) => {
+const ProducList = ({products, onRemove}: ProducListProps) => {
   return (
     <div>
        <table className="table">
@@ -24,7 +25,8 @@ const ProducList = ({products}: ProducListProps) => {
                             <td>{product.name}</td>
                             <td>{product.price}</td>
                             <td>
-                                <button className='btn btn-danger'>Remove</button>
+                                <Link to={`edit/${product.id}`} className='btn btn-success me-3'>Edit</Link>
+                                <button className='btn btn-danger' onClick={() => onRemove(product.id)}>Remove</button>
                             </td>
                         </tr>
                     )
