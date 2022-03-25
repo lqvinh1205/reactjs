@@ -17,6 +17,7 @@ import ProductDetails from './pages/ProductDetails'
 import ProductAdd from './pages/ProductAdd'
 import { Product } from './types/products'
 import ProductEdit from './pages/ProductEdit'
+import PrivateRouter from './components/PrivateRouter'
 function App() {
   const [products, setProducts] = useState<Product[]>([])
   useEffect(() => {
@@ -45,7 +46,7 @@ function App() {
     const { data } = await update(product)
     console.log("data", data);
     // reRender
-    // setProducts(products.map(item => item._id === data._id ? data : item))
+    setProducts(products.map(item => item._id === data._id ? data : item))
   }
   return (
     <div className="App">
@@ -66,12 +67,13 @@ function App() {
               <Route path='products/add' element={<ProductAdd onAdd={onHandleAdd}/>} />
               <Route path='products/:id/edit' element={<ProductEdit onUpdate={handleUpdate}/>} />
           </Route>
-          <Route path='admin' element={<AdminLayout />}>
+          <Route path='admin' element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
                 <Route index element={<Navigate to="dashboard" />} />
                 <Route path='dashboard' element={<DashboardPages />} />
                 <Route path='products' element={<ProductsManager products={products} onRemove={handleRemove} />} />
                 <Route path='product/:id' element={<ProductDetails />} />
           </Route>
+          <Route path='login' element={<h1>Login page</h1>}/>
         </Routes>
       </main>
     </div>

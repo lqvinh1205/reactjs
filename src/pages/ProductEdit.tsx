@@ -32,7 +32,7 @@ const ProductEdit = (props: ProductEditProps) => {
         console.log(dataInput);
         
         props.onUpdate(dataInput)
-        // navigate("/")
+        navigate("/admin/products")
     }
   return (
     <div>

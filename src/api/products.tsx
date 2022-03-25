@@ -18,7 +18,6 @@ export const remove = (id: number) => {
     return instance.delete(url);
 }
 export const update = (data: any) => {
-    debugger
     const url = `/products/${data._id}`
     return instance.put(url, data);
 }
