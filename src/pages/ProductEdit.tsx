@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useForm, SubmitHandler} from "react-hook-form"
-import { create } from '../api/products'
-import { useNavigate } from 'react-router-dom'
-import { Product } from '../types/products'
+import { read } from '../api/products'
+import { useNavigate, useParams } from 'react-router-dom'
 type Inputs = { // kiểu dữ liệu của từng ô input
     name: string,
     price: number,
     category: string
 }
 
-type ProductAddProps = {
-    onAdd: (product: Inputs) => void
+type ProductEditProps = {
+    onUpdate: (product: Inputs) => void
 }
 
-const ProductAdd = (props: ProductAddProps) => {
-    console.log(props.onAdd);
+const ProductEdit = (props: ProductEditProps) => {
     const navigate = useNavigate()
+    const { id } = useParams()
+    
+    useEffect(() => {
+        const getProduct = async () => {
+            const { data } = await read(id)
+            reset(data)
+        } 
+        getProduct()
+    }, [])
     // khai báo các component sử dụng từ hook useForm 
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>()
     // register: để lấy dữ liệu từ ô input
     // handleSubmit: valid input trước khi thực hiện hàm onSubmit
-    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = (dataInput) => {
         // console.log(dataIsnput);
-        props.onAdd(dataInput)
+        console.log(dataInput);
+        
+        props.onUpdate(dataInput)
         // navigate("/")
     }
   return (
@@ -37,4 +46,4 @@ const ProductAdd = (props: ProductAddProps) => {
   )
 }
 
-export default ProductAdd
+export default ProductEdit

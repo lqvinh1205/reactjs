@@ -5,7 +5,7 @@ import ShowInfo from './components/showInfo'
 
 import type { Person } from './types/person'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { create, list } from './api/products'
+import { create, list, remove, update } from './api/products'
 import axios from 'axios'
 import WebsiteLayout from './pages/layouts/WebsiteLayout'
 import HomePages from './pages/HomePages'
@@ -15,8 +15,10 @@ import DashboardPages from './pages/DashboardPages'
 import ProductsManager from './pages/ProductsManager'
 import ProductDetails from './pages/ProductDetails'
 import ProductAdd from './pages/ProductAdd'
+import { Product } from './types/products'
+import ProductEdit from './pages/ProductEdit'
 function App() {
-  const [products, setProducts] = useState<{_id: number, name: string}[]>([])
+  const [products, setProducts] = useState<Product[]>([])
   useEffect(() => {
     const getListProducts = async () => {
       const {data} = await list();
@@ -24,10 +26,26 @@ function App() {
     }
     getListProducts()
   },[]) 
-  const onHandleAdd = async (product: object) => {
+  const onHandleAdd = async (product: any) => {
     console.log(product);
     const {data} = await create(product)
     setProducts([...products, data])
+  }
+  const handleRemove = async (id: any) => {
+    //Call Api
+    const { data } = await remove(id)
+    // reRender
+    setProducts(products.filter(item => item._id !== id))
+  }
+
+  const handleUpdate = async (product: any) => {
+    //Call Api
+    console.log("--------------aaaaaa", product)
+    // const data ='';
+    const { data } = await update(product)
+    console.log("data", data);
+    // reRender
+    // setProducts(products.map(item => item._id === data._id ? data : item))
   }
   return (
     <div className="App">
@@ -45,13 +63,13 @@ function App() {
           <Route path='/' element={<WebsiteLayout />}>
               <Route index element={<HomePages />} />
               <Route path='products' element={<ProductsPage />} />
-              <Route path='products/add' element={<ProductAdd onAdd={onHandleAdd}/>} >
-            </Route>
+              <Route path='products/add' element={<ProductAdd onAdd={onHandleAdd}/>} />
+              <Route path='products/:id/edit' element={<ProductEdit onUpdate={handleUpdate}/>} />
           </Route>
           <Route path='admin' element={<AdminLayout />}>
                 <Route index element={<Navigate to="dashboard" />} />
                 <Route path='dashboard' element={<DashboardPages />} />
-                <Route path='products' element={<ProductsManager />} />
+                <Route path='products' element={<ProductsManager products={products} onRemove={handleRemove} />} />
                 <Route path='product/:id' element={<ProductDetails />} />
           </Route>
         </Routes>
