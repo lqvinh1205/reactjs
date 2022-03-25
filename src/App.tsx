@@ -18,6 +18,8 @@ import ProductAdd from './pages/ProductAdd'
 import { Product } from './types/products'
 import ProductEdit from './pages/ProductEdit'
 import PrivateRouter from './components/PrivateRouter'
+import Signup from './pages/auth/Signup'
+import Signin from './pages/auth/Signin'
 function App() {
   const [products, setProducts] = useState<Product[]>([])
   useEffect(() => {
@@ -41,10 +43,7 @@ function App() {
 
   const handleUpdate = async (product: any) => {
     //Call Api
-    console.log("--------------aaaaaa", product)
-    // const data ='';
     const { data } = await update(product)
-    console.log("data", data);
     // reRender
     setProducts(products.map(item => item._id === data._id ? data : item))
   }
@@ -73,7 +72,8 @@ function App() {
                 <Route path='products' element={<ProductsManager products={products} onRemove={handleRemove} />} />
                 <Route path='product/:id' element={<ProductDetails />} />
           </Route>
-          <Route path='login' element={<h1>Login page</h1>}/>
+          <Route path='login' element={<Signup />}/>
+          <Route path='signin' element={<Signin />}/>
         </Routes>
       </main>
     </div>

@@ -6,9 +6,12 @@ type PrivateRouterProps = {
 }
 
 const PrivateRouter = (props: PrivateRouterProps) => {
-    const isAuth = false;
-    if(!isAuth) {
-        return <Navigate to="/login" />
+    const user = localStorage.getItem("user")
+    console.log(typeof localStorage.getItem("user"));
+    
+    console.log(typeof user);
+    if(user.name === "admin") {
+        return <Navigate to="/" />
     }
     return props.children
 }
