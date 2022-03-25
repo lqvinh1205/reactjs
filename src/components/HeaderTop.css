@@ -8,9 +8,7 @@
     flex-wrap: wrap;
     height: 80px;
     align-items: center;
-    color: #fff;
-    background: #000;
-
+    color: var(--color-white);
 }
 .header-logo {
     width: 20%;
@@ -19,7 +17,7 @@
 }
 .menu-header {
     width: 80%;
-    color: #fff;
+    color: var(--color-white);
 }
 .menu-header ul {
     width: 100%;
@@ -28,7 +26,7 @@
     gap: 4%;
 }
 .menu-header ul li a{
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     font-size: 15px;
 }
