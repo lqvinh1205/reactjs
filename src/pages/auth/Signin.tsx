@@ -26,7 +26,7 @@ const Signin = (props: Props) => {
       className="col-4 offset-4 text-start"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-center">Đăng ký</h1>
+      <h1 className="text-center">Đăng nhập</h1>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email address

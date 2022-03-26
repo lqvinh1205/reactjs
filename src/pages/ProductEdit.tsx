@@ -28,9 +28,6 @@ const ProductEdit = (props: ProductEditProps) => {
     // register: để lấy dữ liệu từ ô input
     // handleSubmit: valid input trước khi thực hiện hàm onSubmit
     const onSubmit: SubmitHandler<Inputs> = (dataInput) => {
-        // console.log(dataIsnput);
-        console.log(dataInput);
-        
         props.onUpdate(dataInput)
         navigate("/admin/products")
     }

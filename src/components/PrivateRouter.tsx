@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navigate } from 'react-router-dom';
 
 type PrivateRouterProps = {
@@ -6,11 +5,9 @@ type PrivateRouterProps = {
 }
 
 const PrivateRouter = (props: PrivateRouterProps) => {
-    const user = localStorage.getItem("user")
-    console.log(typeof localStorage.getItem("user"));
-    
-    console.log(typeof user);
-    if(user.name === "admin") {
+    const user = JSON.parse(localStorage.getItem("user"))
+    console.log(user);
+    if(user.role == 0) {
         return <Navigate to="/" />
     }
     return props.children
