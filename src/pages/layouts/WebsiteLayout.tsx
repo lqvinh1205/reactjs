@@ -1,4 +1,5 @@
 import React from 'react'
+import CarouselCars from '../../components/CarouselCars'
 import HeaderTop from '../../components/HeaderTop'
 import MachineFuture from '../../components/MachineFuture'
 import ProductNew from '../../components/ProductNew'
@@ -11,6 +12,7 @@ const WebsiteLayout = (props: Props) => {
         <HeaderTop />
         <ProductNew />
         <MachineFuture />
+        <CarouselCars />
     </div>
   )
 }

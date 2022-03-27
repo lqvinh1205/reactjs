@@ -30,8 +30,10 @@ ul {
 body {
   background: #000;
 }
+
 :root {
   --color-white-transparent: rgb(255, 255, 255, .2);
+  --color-dark-transparent: rgba(121, 121, 121, 0.2);
   --color-white-light: rgb(192, 192, 192);
   --color-white: #fff;
   --color-blue: rgb(9, 122, 252);
