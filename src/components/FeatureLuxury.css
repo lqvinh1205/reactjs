@@ -10,6 +10,7 @@
     justify-content: center;
     gap: 5%;
     color: var(--color-white);
+    padding-bottom: 5%;
 }
 .featured-lux-logo-cate {
     width: 60px;
@@ -22,10 +23,16 @@
     background-color: var(--color-dark-transparent);
 }
 .featured-lux-logo-cate:hover {
-    background-color: var(--color-dark-transparent-2);
+    background-color: var(--color-blue);
     cursor: pointer;
 }
 .featured-lux-logo-cate img {
     width: 100%;
     transform: scale(.7);
+}
+
+.featured-lux-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8%;
 }

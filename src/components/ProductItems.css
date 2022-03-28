@@ -1,45 +1,48 @@
-.slide-items {
+.featured-lux-products-items {
+    width: 28%;
     border-radius: 25px;
     overflow: hidden;
     background: var(--color-dark-transparent);
     color: var(--color-white);
     padding: 20px;
     position: relative;
+    margin-bottom: 5%;
 }
-.slide-items-image {
+
+.featured-lux-products-items-image {
     width: 100%;
     padding: 50px 30px 50px 60px;
 }
-.slide-items-image img {
+.featured-lux-products-items-image img {
     width: 100%;
     object-fit: cover;
 }
-.slide-items-brand h3{
+.featured-lux-products-items-brand h3{
     color: var(--color-white);
     padding: 20px 0 10px 0;
 }
-.slide-items-brand p{
+.featured-lux-products-items-brand p{
     color: var(--color-light);
     font-size: 16px;
 
 }
-.slide-items-info {
+.featured-lux-products-items-info {
     display: flex;
     flex-wrap: wrap;
     gap: 20%;
 }
-.slide-items-info span{
+.featured-lux-products-items-info span{
     color: var(--color-white);
     display: flex;
     align-items: center;
     gap: 5px;
     margin-bottom: 10px;
 }
-.slide-items-price {
+.featured-lux-products-items-price {
     font-size: 30px;
     padding: 20px 0;
 }
-.slide-items-email {
+.featured-lux-products-items-email {
     position: absolute;
     bottom: 0;right: 0;
     width: 70px;

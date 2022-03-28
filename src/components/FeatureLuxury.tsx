@@ -1,5 +1,6 @@
 import React from "react";
 import "./FeatureLuxury.css"
+import ProductItems from "./ProductItems";
 type Props = {};
 
 const FeatureLuxury = (props: Props) => {
@@ -21,6 +22,14 @@ const FeatureLuxury = (props: Props) => {
             <div className="featured-lux-logo-cate">
                 <img src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226340/car/logo1_qz80i5.png" alt="" />
             </div>
+        </div>
+        <div className="row featured-lux-products">
+          <ProductItems />
+          <ProductItems />
+          <ProductItems />
+          <ProductItems />
+          <ProductItems />
+          <ProductItems />
         </div>
     </div>
   );
