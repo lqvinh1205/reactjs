@@ -3,6 +3,7 @@ import BannerBottom from '../../components/BannerBottom'
 import CarouselCars from '../../components/CarouselCars'
 import FeatureLuxury from '../../components/FeatureLuxury'
 import HeaderTop from '../../components/HeaderTop'
+import ListBrand from '../../components/ListBrand'
 import MachineFuture from '../../components/MachineFuture'
 import MoreFuture from '../../components/MoreFuture'
 import ProductNew from '../../components/ProductNew'
@@ -19,6 +20,7 @@ const WebsiteLayout = (props: Props) => {
         <MoreFuture />
         <FeatureLuxury />
         <BannerBottom />
+        <ListBrand />
     </div>
   )
 }
