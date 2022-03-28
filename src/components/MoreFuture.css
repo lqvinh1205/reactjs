@@ -1,0 +1,58 @@
+.more-future-title {
+    color: var(--color-white);
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 10%;
+}
+.more-future {
+    padding-top: 10%;
+}
+.more-future-main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-image: url("https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226329/car/map_px7abx.svg");
+}
+.more-future-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.more-future-image img{
+    object-fit: cover;
+    height: 500px;
+}
+.more-future-items {
+    width: 20%;
+    padding: 15px;
+    line-height: 20px;
+    position: absolute;
+    /* bottom: 50px; */
+    border-radius: 10px;
+    /* right: 100px; */
+    background: var(--color-dark-transparent-2);
+    color: var(--color-white);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+.more-future-items h4 {
+    font-size: 20px;
+    text-align: center;
+}
+.more-future-items p {
+    font-size: 12px;
+    color: var(--color-white);
+}
+.more-future-item-1 {
+    top: 100px;
+    left: 120px;
+}
+.more-future-item-2 {
+    top: 180px;
+    right: 120px;
+}
+.more-future-item-3 {
+    bottom: 150px;
+    left: 120px;
+}
