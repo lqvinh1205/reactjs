@@ -5,7 +5,7 @@ type Props = {};
 
 const MoreFuture = (props: Props) => {
   return (
-    <div className="more-future">
+    <div className="more-future container">
       <div className="more-future-title">
         <h4>More Features</h4>
       </div>

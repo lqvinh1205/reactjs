@@ -1,4 +1,5 @@
 import React from 'react'
+import BannerBottom from '../../components/BannerBottom'
 import CarouselCars from '../../components/CarouselCars'
 import FeatureLuxury from '../../components/FeatureLuxury'
 import HeaderTop from '../../components/HeaderTop'
@@ -10,13 +11,14 @@ type Props = {}
 
 const WebsiteLayout = (props: Props) => {
   return (
-    <div className='container'>
+    <div className=''>
         <HeaderTop />
         <ProductNew />
         <MachineFuture />
         <CarouselCars />
         <MoreFuture />
         <FeatureLuxury />
+        <BannerBottom />
     </div>
   )
 }
