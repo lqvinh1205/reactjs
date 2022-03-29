@@ -2,6 +2,7 @@ import React from 'react'
 import BannerBottom from '../../components/BannerBottom'
 import CarouselCars from '../../components/CarouselCars'
 import FeatureLuxury from '../../components/FeatureLuxury'
+import Footer from '../../components/Footer'
 import HeaderTop from '../../components/HeaderTop'
 import ListBrand from '../../components/ListBrand'
 import MachineFuture from '../../components/MachineFuture'
@@ -21,6 +22,7 @@ const WebsiteLayout = (props: Props) => {
         <FeatureLuxury />
         <BannerBottom />
         <ListBrand />
+        <Footer />
     </div>
   )
 }
