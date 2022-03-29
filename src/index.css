@@ -28,7 +28,7 @@ ul {
   padding: 0 10%;
 }
 body {
-  background: #000;
+  background: var(--background-dark);
 }
 
 :root {
@@ -37,6 +37,7 @@ body {
   --color-dark-transparent-2: rgba(121, 121, 121, 0.6);
   --color-white-light: rgb(192, 192, 192);
   --color-white: #fff;
+  --background-dark: rgb(0, 0, 0);
   --color-blue: rgb(9, 122, 252);
   --color-light: rgb(95, 95, 95)
 }
