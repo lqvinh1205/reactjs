@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import BannerBottom from '../../components/BannerBottom'
 import CarouselCars from '../../components/CarouselCars'
 import FeatureLuxury from '../../components/FeatureLuxury'
@@ -15,13 +16,7 @@ const WebsiteLayout = (props: Props) => {
   return (
     <div className=''>
         <HeaderTop />
-        <ProductNew />
-        <MachineFuture />
-        <CarouselCars />
-        <MoreFuture />
-        <FeatureLuxury />
-        <BannerBottom />
-        <ListBrand />
+        <Outlet />
         <Footer />
     </div>
   )

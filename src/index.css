@@ -11,6 +11,7 @@ code {
     monospace;
 }
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&family=Ubuntu:wght@300&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -27,7 +28,7 @@ ul {
 .container {
   padding: 0 10%;
 }
-body {
+.bg-dark {
   background: var(--background-dark);
 }
 
@@ -38,6 +39,7 @@ body {
   --color-white-light: rgb(192, 192, 192);
   --color-white: #fff;
   --background-dark: rgb(0, 0, 0);
+  --background-dark-transparent: rgb(0, 0, 0, .7);
   --color-blue: rgb(9, 122, 252);
   --color-light: rgb(95, 95, 95)
 }
