@@ -6,10 +6,9 @@
 }
 .machine-future-left {
     width: 45%;
-    color: var(--color-white);
-    /* padding-right: 10%; */
     position: relative;
 }
+
 .machine-future-image {
     width: 100%;
     border-radius: 10px;
@@ -32,6 +31,8 @@
 .machine-future-item h4 {
     font-size: 20px;
     text-align: center;
+    color: var(--color-white);
+
 }
 .machine-future-item p {
     font-size: 12px;
@@ -43,10 +44,8 @@
     flex-wrap: wrap;
     align-items: center;
 }
-.machine-future-right {
-    color: var(--color-white);
-}
 .machine-future-right h4{
+    color: var(--color-white);
     font-size: 30px;
 }
 .machine-future-right p{
