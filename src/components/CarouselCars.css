@@ -2,7 +2,7 @@
 .carousel-cars {
     margin-top: 10%;
 }
-.carousel-title {
+.carousel-title h4{
     color: var(--color-white);
     font-size: 30px;
     text-align: center;

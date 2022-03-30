@@ -14,7 +14,7 @@ type Props = {}
 
 const WebsiteLayout = (props: Props) => {
   return (
-    <div className=''>
+    <div className='bg-dark'>
         <HeaderTop />
         <Outlet />
         <Footer />

@@ -10,6 +10,7 @@
 .banner-bottom-main {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10%;
 }
 .banner-bottom-left {
@@ -20,6 +21,7 @@
     gap: 30px;    
 }
 .banner-bottom-left h4{
+    color: var(--color-white);
     font-size: 30px;
 }
 .banner-bottom-left p{

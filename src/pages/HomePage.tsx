@@ -11,7 +11,7 @@ type Props = {};
 
 const HomePage = (props: Props) => {
   return (
-    <div className="bg-dark">
+    <div>
       <ProductNew />
       <MachineFuture />
       <CarouselCars />

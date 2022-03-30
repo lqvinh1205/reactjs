@@ -24,6 +24,12 @@ ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  margin: 0 !important;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .container {
   padding: 0 10%;
@@ -37,7 +43,7 @@ ul {
   --color-dark-transparent: rgba(121, 121, 121, 0.2);
   --color-dark-transparent-2: rgba(121, 121, 121, 0.6);
   --color-white-light: rgb(192, 192, 192);
-  --color-white: #fff;
+  --color-white: rgb(255, 255, 255);
   --background-dark: rgb(0, 0, 0);
   --background-dark-transparent: rgb(0, 0, 0, .7);
   --color-blue: rgb(9, 122, 252);
