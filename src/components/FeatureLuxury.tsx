@@ -5,7 +5,7 @@ type Props = {};
 
 const FeatureLuxury = (props: Props) => {
   return (
-    <div className="featured-lux container">
+    <div className="featured-lux container-main">
       <div className="featured-lux-title">
         <h4>Featured Lux Cars</h4>
       </div>

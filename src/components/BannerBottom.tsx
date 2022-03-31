@@ -5,7 +5,7 @@ type Props = {};
 const BannerBottom = (props: Props) => {
   return (
     <div className="banner-bottom">
-      <div className="banner-bottom-main container">
+      <div className="banner-bottom-main container-main">
         <div className="banner-bottom-left">
           <h4>
             Do You Want To Receive <br />

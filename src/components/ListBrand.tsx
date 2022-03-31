@@ -4,7 +4,7 @@ type Props = {}
 
 const ListBrand = (props: Props) => {
   return (
-    <div className='row brand-logo container'>
+    <div className='row brand-logo container-main'>
         <div className="brand-logo-items">
             <img src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226340/car/logo1_qz80i5.png" alt="" />
         </div>

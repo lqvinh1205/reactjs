@@ -9,7 +9,7 @@ type Props = {};
 
 const CarouselCars = (props: Props) => {
   return (
-    <div className="carousel-cars container">
+    <div className="carousel-cars container-main">
       <div className="carousel-title">
         <h4>
           Choose Your Electric Cars <br />

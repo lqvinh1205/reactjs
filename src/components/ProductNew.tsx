@@ -5,7 +5,7 @@ type Props = {}
 
 const ProductNew = (props: Props) => {
   return (
-    <div className='container pro-new-main'>
+    <div className='container-main pro-new-main'>
         <div className="row pro-new-img">
             <img src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226340/car/home_wdkudp.png" alt="" />
         </div>

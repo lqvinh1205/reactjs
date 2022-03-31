@@ -5,7 +5,7 @@ type Props = {}
 
 const HeaderTop = (props: Props) => {
   return (
-    <div className='header-top container'>
+    <div className='header-top container-main'>
         <div className='row header-logo'>
             <div className="logo">
                 <img src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226288/car/favicon_a63nys.png" alt="" />
