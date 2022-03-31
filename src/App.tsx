@@ -6,9 +6,10 @@ import WebsiteLayout from './pages/layouts/WebsiteLayout'
 import HomePage from './pages/HomePage'
 import AdminLayout from './pages/layouts/AdminLayout'
 import Dashboard from './pages/admin/Dashboard'
-import 'antd/dist/antd.variable.min.css';
+import 'antd/dist/antd.min.css';
 import ListProducts from './pages/admin/products/ListProducts'
 import Signup from './pages/Signup'
+import Signin from './pages/Signin'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='products' element={<ListProducts />}/>
         </Route>
         <Route path='/signup' element={<Signup />}/>
+        <Route path='/signin' element={<Signin />}/>
     </Routes>
   )
 }

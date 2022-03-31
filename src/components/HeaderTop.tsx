@@ -1,4 +1,6 @@
+import { Button } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./HeaderTop.css"
 
 type Props = {}
@@ -19,6 +21,9 @@ const HeaderTop = (props: Props) => {
                 <li><a href="">Populor</a></li>
                 <li><a href="">Featured</a></li>
             </ul>
+        </div>
+        <div className='btn-login'>
+            <Link to='/signin'><Button type="dashed" ghost>Sign-In</Button></Link>
         </div>
     </div>
   )

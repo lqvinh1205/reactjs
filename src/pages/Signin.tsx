@@ -1,20 +1,21 @@
-import React from "react";
-import "./Signup.css";
+import React, { Fragment } from "react";
+import "./Signin.css";
 import {
   Form,
   Input,
   Button,
+  Checkbox,
   Typography,
   Avatar,
   Row,
   Col,
-  InputNumber,
 } from "antd";
+import { Link } from "react-router-dom";
 const { Title, Text } = Typography;
 
 type Props = {};
 
-const Signup = (props: Props) => {
+const Signin = (props: Props) => {
   const onFinish = (values: any) => {
     console.log("Success:", values);
   };
@@ -23,7 +24,7 @@ const Signup = (props: Props) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="pt-28 signup-main min-h-screen">
+    <div className="pt-28 signin-main bg-dark min-h-screen">
       <Row justify="center" align="middle" className="pt-5 pb-10">
         <Avatar
           className="logo-login"
@@ -34,9 +35,11 @@ const Signup = (props: Props) => {
           ElecCar
         </Text>
       </Row>
-      <Row className="form-signup">
+      <Row className="form-signin">
         <Col span={24} className="py-4">
-          <Title level={2} className='text-login'>Register</Title>
+          <Title level={2} className="text-login">
+            Login
+          </Title>
         </Col>
         <Col span={24}>
           <Form
@@ -57,6 +60,7 @@ const Signup = (props: Props) => {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               label="Password"
               name="password"
@@ -64,28 +68,24 @@ const Signup = (props: Props) => {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Email"
-              name="email"
-              rules={[
-                {
-                  type: "email",
-                  required: true,
-                  message: "Please input your email!",
-                },
-              ]}
-            >
-              <Input />
+              <Input.Password />
             </Form.Item>
 
+            <Row className="mb-1">
+              <Col span={8} offset={6}>
+                <Text className="have-account">
+                  You have account?
+                  <Link to="/signup" className="pl-2">Sign-up </Link>
+                </Text>
+              </Col>
+            </Row>
+
             <Form.Item
-              label="Age"
-              name="Age"
-              rules={[{ type: "number", min: 0, max: 99 }]}
+              name="remember"
+              valuePropName="checked"
+              wrapperCol={{ offset: 6, span: 18 }}
             >
-              <InputNumber />
+              <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
@@ -100,4 +100,4 @@ const Signup = (props: Props) => {
   );
 };
 
-export default Signup;
+export default Signin;

@@ -24,14 +24,13 @@
     font-size: 20px;
 }
 .menu-header {
-    width: 80%;
+    width: 60%;
     color: var(--color-white);
-    justify-content: end;
 }
 .menu-header ul {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     gap: 4%;
 }
 .menu-header ul li a{
@@ -41,4 +40,8 @@
 }
 .menu-header ul li a:hover{
     color: rgb(3, 66, 124);
+}
+.btn-login {
+    width: 20%;
+    text-align: end;
 }
