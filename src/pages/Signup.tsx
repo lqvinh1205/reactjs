@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import "./Signup.css";
 import {
   Form,
@@ -10,13 +11,17 @@ import {
   Col,
   InputNumber,
 } from "antd";
+import { addUsers } from "../features/users/userSlice";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signup = (props: Props) => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const dispatch = useDispatch();
+
+  const onFinish = (user: any) => {
+    dispatch(addUsers(user));
+    console.log(user);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -36,7 +41,9 @@ const Signup = (props: Props) => {
       </Row>
       <Row className="form-signup">
         <Col span={24} className="py-4">
-          <Title level={2} className='text-login'>Register</Title>
+          <Title level={2} className="text-login">
+            Register
+          </Title>
         </Col>
         <Col span={24}>
           <Form
@@ -50,7 +57,7 @@ const Signup = (props: Props) => {
           >
             <Form.Item
               label="Username"
-              name="username"
+              name="name"
               rules={[
                 { required: true, message: "Please input your username!" },
               ]}

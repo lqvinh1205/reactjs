@@ -11,13 +11,17 @@ import {
   Col,
 } from "antd";
 import { Link } from "react-router-dom";
+import { signIn } from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signin = (props: Props) => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const dispatch = useDispatch()
+  const onFinish = (user: any) => {
+    console.log(user);
+    dispatch(signIn(user))
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -52,10 +56,10 @@ const Signin = (props: Props) => {
             autoComplete="off"
           >
             <Form.Item
-              label="Username"
-              name="username"
+              label="Email"
+              name="email"
               rules={[
-                { required: true, message: "Please input your username!" },
+                { required: true, message: "Please input your email!" },
               ]}
             >
               <Input />
@@ -81,7 +85,6 @@ const Signin = (props: Props) => {
             </Row>
 
             <Form.Item
-              name="remember"
               valuePropName="checked"
               wrapperCol={{ offset: 6, span: 18 }}
             >

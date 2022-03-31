@@ -5,9 +5,9 @@ import WebsiteLayout from './pages/layouts/WebsiteLayout';
 import HomePage from './pages/HomePage';
 import AdminLayout from './pages/layouts/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
-import ListProducts from './features/products/ListProducts';
-import Signup from './pages/Signup';
+import ListProducts from './features/products/pages/ListProducts';
 import Signin from './pages/Signin';
+import Signup from './pages/Signup';
 
 function App() {
 
