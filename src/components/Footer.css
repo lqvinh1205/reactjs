@@ -1,0 +1,58 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--color-white);
+    padding-bottom: 5%;
+}
+.footer-logo {
+    width: 40%;
+}
+.footer-logo-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+.footer-logo-main .logo {
+    display: flex;
+    align-items: center;    
+}
+.footer-text-brand {
+    line-height: 25px;
+    color: var(--color-white-light);
+    font-size: 16px;
+}
+.default-title-footer {
+    color: var(--color-white);
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+.company, .infomation {
+    width: 25%;
+}
+.company ul, .infomation ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+}
+.company ul a, .infomation ul a{
+    color: var(--color-white-light);
+    text-decoration: none;
+}
+.social-share {
+    width: 10%;
+    text-align: end;
+}
+.social-group-icon {
+    display: flex;
+    justify-content: end;
+}
+.social-icon {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    margin-left: 13px;
+}

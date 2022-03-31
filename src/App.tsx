@@ -1,58 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import './App.css'
+import { Routes, Route} from "react-router-dom"
+import 'antd/dist/antd.css';
+import WebsiteLayout from './pages/layouts/WebsiteLayout';
+import HomePage from './pages/HomePage';
+import AdminLayout from './pages/layouts/AdminLayout';
+import Dashboard from './pages/admin/Dashboard';
+import ListProducts from './features/products/ListProducts';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    <Routes>
+        <Route path='/' element={<WebsiteLayout />}>
+            <Route index element={<HomePage />}/>
+        </Route>
+        <Route path='admin' element={<AdminLayout />}>
+            <Route index element={<Dashboard />}/>
+            <Route path='products' element={<ListProducts />}/>
+        </Route>
+        <Route path='/signup' element={<Signup />}/>
+        <Route path='/signin' element={<Signin />}/>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
