@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Form, Input, Button, Checkbox, Row, Select, Upload } from "antd";
+import { Form, Input, Button, Row, Select, Upload } from "antd";
 import { FormInstance } from "antd/es/form";
 import { Typography } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./AddProduct.css";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { addProduct, readProduct, updateProduct } from "../productSlice";
+import { readProduct, updateProduct } from "../productSlice";
 import { useParams } from "react-router-dom";
 
 const { Title } = Typography;
@@ -33,11 +33,6 @@ const EditProduct = (props: Props) => {
       } catch (error) {}
     };
     getProduct();
-
-    // .then((data: any) => {
-    //   form.setFieldsValue(data);
-    // });
-    // console.log('product',product);
   }, [id]);
 
   const onFinish = (product: any) => {

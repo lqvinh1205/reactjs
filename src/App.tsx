@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import AddProduct from "./features/products/pages/AddProduct";
 import EditProduct from "./features/products/pages/EditProduct";
+import PrivateRouter from "./components/PrivateRouter";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
       </Route>
-      <Route path="admin" element={<AdminLayout />}>
+      <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
         <Route index element={<Dashboard />} />
         <Route path="products">
           <Route index element={<ListProducts />} />
