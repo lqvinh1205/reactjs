@@ -1,15 +1,25 @@
 import { MailOutlined } from "@ant-design/icons";
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { readCategory } from "../features/category/categorySlice";
+import { Category } from "../types/category";
+import { Product } from "../types/product";
 import "./ProductItems.css";
 
-type Props = {};
+type ProductItemsProps = {
+  product: Product;
+  cate: Category[];
+};
 
-const ProductItems = (props: Props) => {
+const ProductItems = ({ product, cate }: ProductItemsProps) => {
+  const category = cate.filter((item: any) => item._id === product.category);
+
+
   return (
     <div className="featured-lux-products-items">
       <div className="featured-lux-products-items-brand">
-        <h3>Tesla</h3>
-        <p>Model X</p>
+        <h3>{category[0]?.name}</h3>
+        <p>{product.name}</p>
       </div>
       <div className="featured-lux-products-items-image">
         <img
@@ -17,7 +27,7 @@ const ProductItems = (props: Props) => {
           alt=""
         />
       </div>
-      <div className="featured-lux-products-items-price">$98,900</div>
+      <div className="featured-lux-products-items-price">${product.price}</div>
       <div className="featured-lux-products-items-email">
         <MailOutlined />
       </div>

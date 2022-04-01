@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { getCategory } from "../features/category/categorySlice";
+import { listProduct } from "../features/products/productSlice";
 import "./FeatureLuxury.css"
 import ProductItems from "./ProductItems";
 type Props = {};
 
 const FeatureLuxury = (props: Props) => {
+  const products = useAppSelector((data: any) => data.product.values);
+  const category = useAppSelector((data: any) => data.category.values);
+  const dispath = useAppDispatch();
+
+  useEffect(() => {
+    dispath(listProduct());
+    dispath(getCategory());
+  }, []);
   return (
     <div className="featured-lux container-main">
       <div className="featured-lux-title">
@@ -24,12 +35,11 @@ const FeatureLuxury = (props: Props) => {
             </div>
         </div>
         <div className="row featured-lux-products">
-          <ProductItems />
-          <ProductItems />
-          <ProductItems />
-          <ProductItems />
-          <ProductItems />
-          <ProductItems />
+          {products.map((item: any) => {
+            return (
+              <ProductItems product={item} cate={category} key={item._id}/>
+            )
+          })}
         </div>
     </div>
   );

@@ -19,16 +19,15 @@ type Props = {};
 
 const Signin = (props: Props) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onFinish = (user: any) => {
     try {
       console.log(user);
       dispatch(signIn(user)).then(() => {
-        navigate("/admin")
-      })
+        navigate("/admin");
+      });
     } catch (error) {
       console.log(error);
-      
     }
   };
 

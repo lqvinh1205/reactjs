@@ -1,12 +1,15 @@
 import { Button, Row, Table, Typography } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { listProduct, removeProduct } from "../productSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 type Props = {};
 
 const ListProducts = (props: Props) => {
+  const products = useAppSelector((data: any) => data.product.values);
+  const dispath = useAppDispatch();
+
   const columns: any = [
     {
       title: "Name Product",
@@ -54,8 +57,6 @@ const ListProducts = (props: Props) => {
     },
   ];
 
-  const products = useSelector((data: any) => data.product.values);
-  const dispath = useDispatch();
   useEffect(() => {
     dispath(listProduct());
     console.log(products);

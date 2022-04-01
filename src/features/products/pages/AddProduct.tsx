@@ -109,6 +109,7 @@ const AddProduct = (props: Props) => {
             <Option value="6232aab320971c171e8fb8a0">Tesla</Option>
             <Option value="62460a38c2b69977c07a816a">Lamborghini</Option>
             <Option value="62460a0ec2b69977c07a8158">Audi</Option>
+            <Option value="62470531c2b69977c07a98fd">Porche</Option>
           </Select>
         </Form.Item>
         <Form.Item
