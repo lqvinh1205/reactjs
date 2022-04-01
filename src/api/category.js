@@ -39,10 +39,10 @@ export const remove = async (id) => {
   });
 };
 
-export const update = async (product) => {
-  console.log(product);
-  const url = `/category/${product.id}/${isUser.user._id}/edit`;
-  return instance.put(url, product, {
+export const update = async (cate) => {
+  console.log(cate);
+  const url = `/category/${cate.id}/${isUser.user._id}/edit`;
+  return instance.put(url, cate, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },

@@ -27,7 +27,7 @@ const SideBar = (props: Props) => {
           <Link to="/admin">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>
-          Option 2
+        <Link to="/admin/category">Category manager</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<UserOutlined />}>
           User Manager

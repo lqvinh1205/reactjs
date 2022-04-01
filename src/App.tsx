@@ -11,6 +11,9 @@ import Signin from "./pages/Signin";
 import AddProduct from "./features/products/pages/AddProduct";
 import EditProduct from "./features/products/pages/EditProduct";
 import PrivateRouter from "./components/PrivateRouter";
+import ListCategory from "./features/category/pages/ListCategory";
+import AddCategory from "./features/category/pages/AddCategory";
+import EditCategory from "./features/category/pages/EditCategory";
 
 function App() {
   return (
@@ -24,6 +27,11 @@ function App() {
           <Route index element={<ListProducts />} />
           <Route path="add" element={<AddProduct />} />
           <Route path=":id/edit" element={<EditProduct />} />
+        </Route>
+        <Route path="category">
+          <Route index element={<ListCategory />} />
+          <Route path="add" element={<AddCategory />} />
+          <Route path=":id/edit" element={<EditCategory />} />
         </Route>
       </Route>
       <Route path="/signup" element={<Signup />} />

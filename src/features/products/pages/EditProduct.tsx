@@ -36,7 +36,7 @@ const EditProduct = (props: Props) => {
   }, [id]);
 
   const onFinish = (product: any) => {
-    dispath(updateProduct({id,...product}));
+    dispath(updateProduct({ id, ...product }));
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -131,7 +131,7 @@ const EditProduct = (props: Props) => {
         <Form.Item
           name="images"
           label="Upload"
-          valuePropName="fileList"
+          valuePropName=''
           getValueFromEvent={normFile}
           extra=""
         >
