@@ -23,7 +23,7 @@ const ProductItems = ({ product, cate }: ProductItemsProps) => {
       </div>
       <div className="featured-lux-products-items-image">
         <img
-          src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226300/car/featured1_oksfqc.png"
+          src={product.images}
           alt=""
         />
       </div>

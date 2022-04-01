@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { read as readCate} from "../../api/category";
 import { create, list, read, remove, update } from "../../api/products";
 
 export const addProduct = createAsyncThunk(
@@ -57,6 +58,19 @@ export const listProduct = createAsyncThunk(
     }
   }
 );
+
+export const listProductWithCate = createAsyncThunk(
+  "products/listProductWithCate",
+  async (id: any) => {
+    try {
+      const { data: {products} } = await readCate(id);
+      return products;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const productSlice = createSlice({
   name: "products",
   initialState: {
@@ -76,6 +90,9 @@ const productSlice = createSlice({
       );
     });
     builder.addCase(listProduct.fulfilled, (state: any, action: any) => {
+      state.values = action.payload;
+    });
+    builder.addCase(listProductWithCate.fulfilled, (state: any, action: any) => {
       state.values = action.payload;
     });
     builder.addCase(readProduct.fulfilled, (state: any, action: any) => {

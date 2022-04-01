@@ -1,28 +1,34 @@
 import { MailOutlined } from "@ant-design/icons";
 import React from "react";
+import { Category } from "../types/category";
+import { Product } from "../types/product";
 import "./CarouselCarItems.css";
-type Props = {};
+type CarouselCarItemsProps = {
+  product: Product,
+  category: Category
+};
 
-const CarouselCarItems = (props: Props) => {
+const CarouselCarItems = ({product, category}: CarouselCarItemsProps) => {
+  
   return (
     <div className="slide-items">
       <div className="slide-items-brand">
-        <h3>Porsche</h3>
-        <p>Turbo S</p>
+        <h3>{category?.name}</h3>
+        <p>{product?.name}</p>
       </div>
       <div className="slide-items-image">
         <img
-          src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226340/car/popular1_wtmgtd.png"
+          src={product.images}
           alt=""
         />
       </div>
       <div className="slide-items-info">
-          <span><i className="ri-safari-line"></i> 3.7 Sec</span>
-          <span><i className="ri-funds-box-line"></i> 357 Km/h</span>
-          <span><i className="ri-charging-pile-2-line"></i> Electric</span>
+          <span><i className="ri-safari-line"></i>{product.boost} Sec</span>
+          <span><i className="ri-funds-box-line"></i>{product.speed} Km/h</span>
+          <span><i className="ri-charging-pile-2-line"></i> {product.technology}</span>
       </div>
       <div className="slide-items-price">
-          $175,900
+          $ {product.price}
       </div>
       <div className="slide-items-email">
         <MailOutlined />

@@ -12,6 +12,13 @@
     color: var(--color-white);
     padding-bottom: 5%;
 }
+.featured-lux-logo button{
+    color: var(--color-white);
+    border: none;
+}
+.featured-lux-logo button:hover{
+    color: var(--color-white);
+}
 .featured-lux-logo-cate {
     width: 60px;
     height: 60px;
