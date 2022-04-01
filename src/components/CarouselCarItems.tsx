@@ -1,6 +1,6 @@
+import { MailOutlined } from "@ant-design/icons";
 import React from "react";
 import "./CarouselCarItems.css";
-
 type Props = {};
 
 const CarouselCarItems = (props: Props) => {
@@ -25,7 +25,7 @@ const CarouselCarItems = (props: Props) => {
           $175,900
       </div>
       <div className="slide-items-email">
-        <i className="ri-mail-line"></i>
+        <MailOutlined />
       </div>
     </div>
   );

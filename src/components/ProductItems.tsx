@@ -1,3 +1,4 @@
+import { MailOutlined } from "@ant-design/icons";
 import React from "react";
 import "./ProductItems.css";
 
@@ -16,11 +17,9 @@ const ProductItems = (props: Props) => {
           alt=""
         />
       </div>
-      <div className="featured-lux-products-items-price">
-          $98,900
-      </div>
+      <div className="featured-lux-products-items-price">$98,900</div>
       <div className="featured-lux-products-items-email">
-        <i className="ri-mail-line"></i>
+        <MailOutlined />
       </div>
     </div>
   );

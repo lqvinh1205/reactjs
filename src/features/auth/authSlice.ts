@@ -3,17 +3,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { signin } from "../../api/auth";
 import { setLs } from "../../ultis/localstogare";
 
-
-
 export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
   try {
     const { data } = await signin(user);
     setLs("user", data);
-    // const navigate = useNavigate();
-    // navigate("/admin")
   } catch (error) {
     console.log(error);
-    
   }
 });
 const authSlice = createSlice({

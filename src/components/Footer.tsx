@@ -1,3 +1,8 @@
+import {
+  FacebookOutlined,
+  InstagramOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
 import React from "react";
 import "./Footer.css";
 type Props = {};
@@ -16,8 +21,9 @@ const Footer = (props: Props) => {
           <div>ElecCar</div>
         </div>
         <div className="row footer-text-brand">
-          We offer the best electric cars of<br/> the most recognized brands in<br/> the
-          word.
+          We offer the best electric cars of
+          <br /> the most recognized brands in
+          <br /> the word.
         </div>
       </div>
 
@@ -61,13 +67,13 @@ const Footer = (props: Props) => {
         <h4 className="default-title-footer">Follow us</h4>
         <div className="row social-group-icon">
           <div className="social-icon">
-            <i className="ri-facebook-fill"></i>
+            <FacebookOutlined />
           </div>
           <div className="social-icon">
-            <i className="ri-instagram-line"></i>
+            <InstagramOutlined />
           </div>
           <div className="social-icon">
-            <i className="ri-twitter-line"></i>
+            <TwitterOutlined />
           </div>
         </div>
       </div>
