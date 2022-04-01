@@ -1,0 +1,8 @@
+.ant-form-vertical .ant-form-item-label > label,
+.ant-input,
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+.anticon-upload svg
+{
+    color: var(--color-black);
+}

@@ -14,10 +14,11 @@ type Props = {};
 const SideBar = (props: Props) => {
   return (
     <>
-      <div className="side-logo logo">
+      <div className="side-logo logo text-center">
         <img
           src="https://res.cloudinary.com/dzroyn2i4/image/upload/v1648226288/car/favicon_a63nys.png"
           alt=""
+          className="gcol-12"
         />
         <div>ElecCar</div>
       </div>

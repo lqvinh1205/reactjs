@@ -1,98 +1,88 @@
-import { Table } from 'antd'
-import React, { useState } from 'react'
+import { Button, Row, Table, Typography } from "antd";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { listProduct, removeProduct } from "../productSlice";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+type Props = {};
 
-type Props = {}
-const columns:any = [
+const ListProducts = (props: Props) => {
+  const columns: any = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      render: (text:any) => <a>{text}</a>,
+      title: "Name Product",
+      dataIndex: "name",
+      render: (text: any) => <a>{text}</a>,
     },
     {
-      title: 'Cash Assets',
-      className: 'column-money',
-      dataIndex: 'money',
-      align: 'right',
+      title: "Price",
+      className: "column-money",
+      dataIndex: "price",
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
+      title: "Technology",
+      dataIndex: "technology",
+    },
+    {
+      title: "Speed",
+      dataIndex: "speed",
+    },
+    {
+      title: "Boost",
+      dataIndex: "boost",
+    },
+    {
+      title: "Category",
+      dataIndex: "category",
+    },
+    {
+      title: "Action",
+      dataIndex: "_id",
+      align: "right",
+      render: (id: any) => (
+        <Row className="flex gap-2 justify-end">
+          <Link to={`/admin/products/${id}/edit`}>
+            <Button type="primary" icon={<EditOutlined />}></Button>
+          </Link>
+          <Button
+            type="primary"
+            danger
+            icon={<DeleteOutlined />}
+            onClick={() => dispath(removeProduct(id))}
+          ></Button>
+        </Row>
+      ),
     },
   ];
-  
-  
-const ListProducts = (props: Props) => {
-    const data:any = [
-        {
-          key: '1',
-          name: 'John Brown',
-          money: '￥300,000.00',
-          address: 'New York No. 1 Lake Park',
-        },
-        {
-          key: '2',
-          name: 'Jim Green',
-          money: '￥1,256,000.00',
-          address: 'London No. 1 Lake Park',
-        },
-        {
-          key: '3',
-          name: 'Joe Black',
-          money: '￥120,000.00',
-          address: 'Sidney No. 1 Lake Park',
-        },
-        {
-            key: '1',
-            name: 'John Brown',
-            money: '￥300,000.00',
-            address: 'New York No. 1 Lake Park',
-          },
-          {
-            key: '2',
-            name: 'Jim Green',
-            money: '￥1,256,000.00',
-            address: 'London No. 1 Lake Park',
-          },
-          {
-            key: '3',
-            name: 'Joe Black',
-            money: '￥120,000.00',
-            address: 'Sidney No. 1 Lake Park',
-          },
-          {
-            key: '1',
-            name: 'John Brown',
-            money: '￥300,000.00',
-            address: 'New York No. 1 Lake Park',
-          },
-          {
-            key: '2',
-            name: 'Jim Green',
-            money: '￥1,256,000.00',
-            address: 'London No. 1 Lake Park',
-          },
-          {
-            key: '3',
-            name: 'Joe Black',
-            money: '￥120,000.00',
-            address: 'Sidney No. 1 Lake Park',
-          },
-      ]
-      const total = data.length
-  return (
-    <Table
-    columns={columns}
-    dataSource={data}
-    bordered
-    title={() => 'Danh sách sản phẩm'}
-    pagination={{
-        total: total,
-        pageSize: 5,
-        showSizeChanger: true,
-        pageSizeOptions: [5, 6, 7]
-    }}
-  />
-  )
-}
 
-export default ListProducts
+  const products = useSelector((data: any) => data.product.values);
+  const dispath = useDispatch();
+  useEffect(() => {
+    dispath(listProduct());
+    console.log(products);
+  }, []);
+  return (
+    <>
+      <Row className="mb-3">
+        <Link to="/admin/products/add">
+          <Button type="primary">Add Product</Button>
+        </Link>
+      </Row>
+      <Table
+        columns={columns}
+        dataSource={products}
+        bordered
+        title={() => (
+          <Typography.Title level={3}>List Products</Typography.Title>
+        )}
+        pagination={{
+          total: products.lenght,
+          pageSize: 5,
+          showSizeChanger: true,
+          pageSizeOptions: [5, 6, 7],
+        }}
+      />
+    </>
+  );
+};
+
+export default ListProducts;

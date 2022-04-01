@@ -14,14 +14,14 @@ export const addUsers = createAsyncThunk(
 const userSlice = createSlice({
   name: "users",
   initialState: {
-    users: [],
+    values: [],
   },
   reducers: {
 
   },
   extraReducers: (builder: any) => {
     builder.addCase(addUsers.fulfilled, (state: any, action: any) => {
-      state.users = action.payload;
+      state.values = action.payload;
     });
   },
 });

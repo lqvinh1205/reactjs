@@ -1,11 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// import { useNavigate } from "react-router-dom";
 import { signin } from "../../api/auth";
 import { setLs } from "../../ultis/localstogare";
 
+
+
 export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
-  const { data } = await signin(user);
-  setLs("user", data);
-  return data;
+  try {
+    const { data } = await signin(user);
+    setLs("user", data);
+    // const navigate = useNavigate();
+    // navigate("/admin")
+  } catch (error) {
+    console.log(error);
+    
+  }
 });
 const authSlice = createSlice({
   name: "auth",
