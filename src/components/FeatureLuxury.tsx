@@ -38,7 +38,7 @@ const FeatureLuxury = (props: Props) => {
           );
         })}
       </div>
-      <div className="row featured-lux-products">
+      <div className="row featured-lux-products min-h-[70vh]">
         {products?.map((item: any) => {
           return (
             <ProductItems product={item} cate={categories} key={item._id} />

@@ -1,15 +1,18 @@
 import { Button } from "antd";
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { signOut } from "../features/auth/authSlice";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getLs, removeLs } from "../ultis/localstogare";
 import "./HeaderTop.css";
 
 type Props = {};
 
 const HeaderTop = (props: Props) => {
-  const isSignin = useAppSelector((data: any) => data.auth.isSignin);
-  const dispath = useAppDispatch();
+    const isSignin = getLs("user")
+    const navigate = useNavigate()
+    const signOut = () => {
+        removeLs('user')
+        navigate("/")
+    }
 
   return (
     <div className="header-top container-main">
@@ -41,7 +44,7 @@ const HeaderTop = (props: Props) => {
       <div className="btn-login">
         {isSignin ? (
           <Link to="/">
-            <Button type="dashed" ghost onClick={() => dispath(signOut())}>
+            <Button type="dashed" ghost onClick={signOut}>
               Log-out
             </Button>
           </Link>
