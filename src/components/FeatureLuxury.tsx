@@ -20,7 +20,7 @@ const FeatureLuxury = (props: Props) => {
     dispath(getCategory());
   }, []);
   return (
-    <div className="featured-lux container-main">
+    <div className="featured-lux container-main" id="featured-lux">
       <div className="featured-lux-title">
         <h4>Featured Lux Cars</h4>
       </div>

@@ -5,7 +5,7 @@ type Props = {};
 
 const MachineFuture = (props: Props) => {
   return (
-    <div className="row machine-future container-main">
+    <div className="row machine-future container-main" id="machine-feature">
       <div className="machine-future-left">
         <div className="machine-future-image">
           <img

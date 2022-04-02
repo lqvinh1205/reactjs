@@ -17,7 +17,7 @@ const CarouselCars = (props: Props) => {
     dispath(readCategory("62470531c2b69977c07a98fd"));
   }, []);
   return (
-    <div className="carousel-cars container-main">
+    <div className="carousel-cars container-main" id="carousel-cars">
       <div className="carousel-title">
         <h4>
           Choose Your Electric Cars <br />

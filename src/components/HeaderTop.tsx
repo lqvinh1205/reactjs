@@ -28,16 +28,16 @@ const HeaderTop = (props: Props) => {
       <div className="menu-header">
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href="#pro-new">Home</a>
           </li>
           <li>
-            <a href="/">About</a>
+            <a href="#carousel-cars">Populor</a>
           </li>
           <li>
-            <a href="/">Populor</a>
-          </li>
+            <a href="#more-future">About</a>
+          </li>      
           <li>
-            <a href="/">Featured</a>
+            <a href="#featured-lux">Featured</a>
           </li>
         </ul>
       </div>
