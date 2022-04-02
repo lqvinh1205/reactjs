@@ -37,7 +37,9 @@
     width: 100%;
     transform: scale(.7);
 }
-
+.featured-lux-logo .ant-btn:focus {
+    background-color: var(--color-blue);
+}
 .featured-lux-products {
     display: flex;
     flex-wrap: wrap;

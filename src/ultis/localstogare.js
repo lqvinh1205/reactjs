@@ -4,3 +4,6 @@ export const setLs = (key, data) => {
 export const getLs = (key) => {
     return JSON.parse(localStorage.getItem(key))
 }
+export const removeLs = (key) => {
+    return localStorage.removeItem(key)
+}

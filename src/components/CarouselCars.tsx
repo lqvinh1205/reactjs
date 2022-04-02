@@ -21,7 +21,7 @@ const CarouselCars = (props: Props) => {
       <div className="carousel-title">
         <h4>
           Choose Your Electric Cars <br />
-          Of The Porcher Brand
+          Of The Porche Brand
         </h4>
       </div>
       <Swiper
