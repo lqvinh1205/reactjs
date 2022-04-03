@@ -28,7 +28,11 @@ const HeaderTop = (props: Props) => {
       <div className="menu-header">
         <ul>
           <li>
-            <a href="#pro-new">Home</a>
+            {/* <a href="#pro-new">Home</a> */}
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/products'>Shop</Link>
           </li>
           <li>
             <a href="#carousel-cars">Populor</a>

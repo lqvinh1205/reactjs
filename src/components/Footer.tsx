@@ -9,7 +9,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <div className="footer row container-main">
+    <div className="footer row container-main pt-[30px]">
       <div className="footer-logo">
         <div className="row footer-logo-main">
           <div className="logo">

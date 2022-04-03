@@ -14,14 +14,23 @@ import PrivateRouter from "./components/PrivateRouter";
 import ListCategory from "./features/category/pages/ListCategory";
 import AddCategory from "./features/category/pages/AddCategory";
 import EditCategory from "./features/category/pages/EditCategory";
+import Products from "./pages/Products";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="products" element={<Products />} />
       </Route>
-      <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
+      <Route
+        path="admin"
+        element={
+          <PrivateRouter>
+            <AdminLayout />
+          </PrivateRouter>
+        }
+      >
         <Route index element={<Dashboard />} />
         <Route path="products">
           <Route index element={<ListProducts />} />
@@ -34,8 +43,8 @@ function App() {
           <Route path=":id/edit" element={<EditCategory />} />
         </Route>
       </Route>
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />
+      <Route path="signup" element={<Signup />} />
+      <Route path="signin" element={<Signin />} />
     </Routes>
   );
 }
