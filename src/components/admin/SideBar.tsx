@@ -27,10 +27,10 @@ const SideBar = (props: Props) => {
           <Link to="/admin">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>
-        <Link to="/admin/category">Category manager</Link>
+          <Link to="/admin/category">Category manager</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<UserOutlined />}>
-          User Manager
+          <Link to="/admin/users">User Manager</Link>
         </Menu.Item>
         <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
           <Menu.Item key="6">Team 1</Menu.Item>

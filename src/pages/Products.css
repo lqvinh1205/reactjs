@@ -25,7 +25,7 @@
     top: 90px;
     box-shadow: 0 0 10px 1px var(--color-dark-transparent-2) !important;
     overflow: hidden;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 .product-menu-side-logo {
     padding: 25px;
@@ -36,4 +36,12 @@
 }
 .product-page-content .featured-lux-products-items {
     width: 31%;
+}
+.product-menu-side-search {
+    color: var(--color-white) !important;
+    padding: 0;
+}
+span.anticon.anticon-search {
+    display: flex;
+    justify-content: center;
 }

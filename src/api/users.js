@@ -11,7 +11,7 @@ export const create = async (user) => {
 };
 
 export const list = async () => {
-  const url = "/users";
+  const url = `/users/${isUser.user._id}`;
   return instance.get(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
@@ -20,7 +20,7 @@ export const list = async () => {
 };
 
 export const read = async (id) => {
-  const url = `/users/${id}`;
+  const url = `/users/${id}/${isUser.user._id}`;
   return instance.get(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
@@ -29,7 +29,7 @@ export const read = async (id) => {
 };
 
 export const remove = async (id) => {
-  const url = `/users/${id}`;
+  const url = `/users/${id}/${isUser.user._id}`;
   return instance.delete(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
@@ -38,8 +38,8 @@ export const remove = async (id) => {
 };
 
 export const update = async (user) => {
-  const url = `/users/${user._id}`;
-  return instance.post(url, user, {
+  const url = `/users/${user.id}/${isUser.user._id}`;
+  return instance.patch(url, user, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },

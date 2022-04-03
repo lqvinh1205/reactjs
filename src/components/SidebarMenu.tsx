@@ -1,15 +1,21 @@
 import { AppstoreOutlined } from "@ant-design/icons";
-import { Col, Divider, Menu, Row, Typography } from "antd";
+import { Col, Divider, Input, Menu, Row, Typography } from "antd";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { listProduct, listProductWithCate } from "../features/products/productSlice";
+import {
+  listProduct,
+  listProductWithCate,
+} from "../features/products/productSlice";
 
-const {Text} = Typography
+const { Text } = Typography;
+const { Search } = Input;
 type Props = {};
 
 const SidebarMenu = (props: Props) => {
-    const categories = useAppSelector((data: any) => data.category.values);
-    const dispath = useAppDispatch();
+  const categories = useAppSelector((data: any) => data.category.values);
+  const dispath = useAppDispatch();
+  const onSearch = (value: any) => console.log(value);
+
   return (
     <>
       <Menu
@@ -53,6 +59,16 @@ const SidebarMenu = (props: Props) => {
             </Menu.Item>
           );
         })}
+        <Divider orientation="left" className="product-menu-side-search">
+          Search
+        </Divider>
+        <Row className="px-5" align="middle">
+          <Search
+            placeholder="input search text"
+            onSearch={onSearch}
+            enterButton
+          />
+        </Row>
       </Menu>
     </>
   );

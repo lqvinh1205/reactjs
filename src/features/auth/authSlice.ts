@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import { useNavigate } from "react-router-dom";
 import { signin } from "../../api/auth";
-import { removeLs, setLs } from "../../ultis/localstogare";
+import { setLs } from "../../ultis/localstogare";
 
 export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
   try {
@@ -11,9 +10,7 @@ export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
     console.log(error);
   }
 });
-// export const signOut = createAsyncThunk("auth/signOut", (user: any) => {
- 
-// });
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -21,10 +18,6 @@ const authSlice = createSlice({
     isSignin: false
   },
   reducers: {
-    // signOut: state =>  {
-    //   removeLs('user')
-    //   state.isSignin = false
-    // }
   },
   extraReducers: (builder: any) => {
     builder.addCase(signIn.fulfilled, (state: any, action: any) => {
@@ -35,5 +28,4 @@ const authSlice = createSlice({
     });
   },
 });
-// export const { signOut } = authSlice.actions
 export default authSlice.reducer;

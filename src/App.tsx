@@ -15,6 +15,9 @@ import ListCategory from "./features/category/pages/ListCategory";
 import AddCategory from "./features/category/pages/AddCategory";
 import EditCategory from "./features/category/pages/EditCategory";
 import Products from "./pages/Products";
+import ListUser from "./features/users/pages/ListProducts";
+import AddUser from "./features/users/pages/AddUser";
+import EditUser from "./features/users/pages/EditUser";
 
 function App() {
   return (
@@ -41,6 +44,11 @@ function App() {
           <Route index element={<ListCategory />} />
           <Route path="add" element={<AddCategory />} />
           <Route path=":id/edit" element={<EditCategory />} />
+        </Route>
+        <Route path="users">
+          <Route index element={<ListUser />} />
+          <Route path="add" element={<AddUser />} />
+          <Route path=":id/edit" element={<EditUser />} />
         </Route>
       </Route>
       <Route path="signup" element={<Signup />} />
