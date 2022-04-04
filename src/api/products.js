@@ -40,9 +40,27 @@ export const remove = async (id) => {
 };
 
 export const update = async (product) => {
-  console.log(product);
   const url = `/products/${product.id}/${isUser.user._id}/edit`;
   return instance.put(url, product, {
+    headers: {
+      "Authorization": `Bearer ${isUser?.token}`,
+    },
+  });
+};
+
+export const search = async (value) => {
+  const url = `/products_search?name=${value.value}`;
+  return instance.post(url, value, {
+    headers: {
+      "Authorization": `Bearer ${isUser?.token}`,
+    },
+  });
+};
+
+
+export const range = async (value) => {
+  const url = `/products_pricerange`;
+  return instance.post(url, value, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },

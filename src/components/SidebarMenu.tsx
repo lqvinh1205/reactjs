@@ -1,10 +1,12 @@
 import { AppstoreOutlined } from "@ant-design/icons";
-import { Col, Divider, Input, Menu, Row, Typography } from "antd";
+import { Col, Divider, Input, Menu, Row, Slider, Typography } from "antd";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import {
   listProduct,
   listProductWithCate,
+  rangePrice,
+  searchProducts,
 } from "../features/products/productSlice";
 
 const { Text } = Typography;
@@ -14,8 +16,14 @@ type Props = {};
 const SidebarMenu = (props: Props) => {
   const categories = useAppSelector((data: any) => data.category.values);
   const dispath = useAppDispatch();
-  const onSearch = (value: any) => console.log(value);
+  const onSearch = (value: any) => {
+    dispath(searchProducts({ value: value }));
+  };
 
+  function onAfterChange(value: any) {
+    console.log("onAfterChange: ", value);
+      dispath(rangePrice({range: value}))
+  }
   return (
     <>
       <Menu
@@ -28,6 +36,7 @@ const SidebarMenu = (props: Props) => {
         <Divider orientation="left" className="product-mene-side-title" plain>
           Categories
         </Divider>
+
         <Menu.Item key={0} onClick={() => dispath(listProduct())}>
           <Row align="middle">
             <Col span={6}>
@@ -59,6 +68,20 @@ const SidebarMenu = (props: Props) => {
             </Menu.Item>
           );
         })}
+        <Divider orientation="left" className="product-menu-side-search">
+          Range Price
+        </Divider>
+        <Row style={{ width: "100%" }}>
+          <Slider
+            range
+            step={1000}
+            min={0}
+            max={200000}
+            defaultValue={[0, 50000]}
+            onAfterChange={onAfterChange}
+            style={{ width: "100%", margin: "0 25px" }}
+          />
+        </Row>
         <Divider orientation="left" className="product-menu-side-search">
           Search
         </Divider>

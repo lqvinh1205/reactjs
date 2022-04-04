@@ -1,12 +1,12 @@
 import { Button, Row, Table, Typography } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUsers, removeUsers } from "../userSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 type ListUserProps = {};
 
-const ListUser = (props: ListUserProps) => {
+const ListUsers = (props: ListUserProps) => {
   const users = useAppSelector((data: any) => data.user.values);
   const dispath = useAppDispatch();
 
@@ -65,7 +65,7 @@ const ListUser = (props: ListUserProps) => {
         dataSource={users}
         bordered
         title={() => (
-          <Typography.Title level={3}>List Products</Typography.Title>
+          <Typography.Title level={3}>List Users</Typography.Title>
         )}
         pagination={{
           total: users.lenght,
@@ -78,4 +78,4 @@ const ListUser = (props: ListUserProps) => {
   );
 };
 
-export default ListUser;
+export default ListUsers;

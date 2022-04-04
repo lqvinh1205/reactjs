@@ -1,6 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { read as readCate} from "../../api/category";
-import { create, list, read, remove, update } from "../../api/products";
+import { read as readCate } from "../../api/category";
+import {
+  create,
+  list,
+  range,
+  read,
+  remove,
+  search,
+  update,
+} from "../../api/products";
 
 export const addProduct = createAsyncThunk(
   "products/addProduct",
@@ -26,8 +34,8 @@ export const removeProduct = createAsyncThunk(
 );
 export const readProduct = createAsyncThunk(
   "products/readProduct",
-  async (id:any) => {
-    console.log(id)
+  async (id: any) => {
+    console.log(id);
     try {
       const { data } = await read(id);
       return data;
@@ -63,8 +71,34 @@ export const listProductWithCate = createAsyncThunk(
   "products/listProductWithCate",
   async (id: any) => {
     try {
-      const { data: {products} } = await readCate(id);
+      const {
+        data: { products },
+      } = await readCate(id);
       return products;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const searchProducts = createAsyncThunk(
+  "products/searchProducts",
+  async (value: any) => {
+    try {
+      const { data } = await search(value);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const rangePrice = createAsyncThunk(
+  "products/rangePrice",
+  async (value: any) => {
+    try {
+      const { data } = await range(value);
+      return data;
     } catch (error) {
       console.log(error);
     }
@@ -92,7 +126,16 @@ const productSlice = createSlice({
     builder.addCase(listProduct.fulfilled, (state: any, action: any) => {
       state.values = action.payload;
     });
-    builder.addCase(listProductWithCate.fulfilled, (state: any, action: any) => {
+    builder.addCase(
+      listProductWithCate.fulfilled,
+      (state: any, action: any) => {
+        state.values = action.payload;
+      }
+    );
+    builder.addCase(searchProducts.fulfilled, (state: any, action: any) => {
+      state.values = action.payload;
+    });
+    builder.addCase(rangePrice.fulfilled, (state: any, action: any) => {
       state.values = action.payload;
     });
     builder.addCase(readProduct.fulfilled, (state: any, action: any) => {
