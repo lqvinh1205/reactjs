@@ -18,9 +18,9 @@
   padding: 5% 30%;
   background-color: var(--color-black);
 }
-.ant-form-item-label > label,
-.ant-checkbox + span,
-.anticon svg {
+.form-signin .ant-form-item-label > label,
+.form-signin .ant-checkbox + span,
+.form-signin .anticon svg {
   color: var(--color-white);
 }
 .ant-input,

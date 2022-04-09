@@ -42,6 +42,11 @@ ul {
 .text-white {
   color: var(--color-white);
 }
+
+.ant-notification-notice-content .ant-notification-notice-with-icon .anticon svg{
+  color: none !important;
+}
+/* .ant-form-item-label > label, .ant-checkbox + span, .anticon svg */
 :root {
   --color-white-transparent: rgb(255, 255, 255, 0.2);
   --color-dark-transparent: rgba(121, 121, 121, 0.2);

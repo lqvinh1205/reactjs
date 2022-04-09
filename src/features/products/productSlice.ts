@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { notification } from "antd";
 import { read as readCate } from "../../api/category";
 import {
   create,
@@ -10,28 +11,23 @@ import {
   update,
 } from "../../api/products";
 
-export const addProduct = createAsyncThunk(
-  "products/addProduct",
-  async (product: any) => {
+
+
+export const listProduct = createAsyncThunk(
+  "products/listProduct",
+  async () => {
     try {
-      const { data } = await create(product);
+      const { data } = await list();
       return data;
     } catch (error) {
-      console.log(error);
+      notification.error({
+        message: "Thông báo",
+        description: "Không thể lấy danh sách sản phẩm",
+      });
     }
   }
 );
-export const removeProduct = createAsyncThunk(
-  "products/removeProduct",
-  async (id: any) => {
-    try {
-      const { data } = await remove(id);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
+
 export const readProduct = createAsyncThunk(
   "products/readProduct",
   async (id: any) => {
@@ -40,32 +36,71 @@ export const readProduct = createAsyncThunk(
       const { data } = await read(id);
       return data;
     } catch (error) {
-      console.log(error);
+      notification.error({
+        message: "Thông báo",
+        description: "Không tìm thấy sản phẩm",
+      });
     }
   }
 );
+
+export const addProduct = createAsyncThunk(
+  "products/addProduct",
+  async (product: any) => {
+    try {
+      const { data } = await create(product);
+      notification.success({
+        message: "Thông báo",
+        description: "Thêm sản phẩm thành công!",
+      })
+      return data;
+    } catch (error) {
+      notification.error({
+        message: "Thông báo",
+        description: "Không thể thêm sản phẩm",
+        duration: 20
+      });
+    }
+  }
+);
+export const removeProduct = createAsyncThunk(
+  "products/removeProduct",
+  async (id: any) => {
+    try {
+      const { data } = await remove(id);
+      notification.success({
+        message: "Thông báo",
+        description: "Xóa sản phẩm thành công!",
+      })
+      return data;
+    } catch (error) {
+      notification.error({
+        message: "Thông báo",
+        description: "Không thể xóa sản phẩm",
+      });
+    }
+  }
+);
+
 export const updateProduct = createAsyncThunk(
   "products/updateProduct",
   async (product: any) => {
     try {
       const { data } = await update(product);
+      notification.success({
+        message: "Thông báo",
+        description: "Cập nhật sản phẩm thành công!",
+      })
       return data;
     } catch (error) {
-      console.log(error);
+      notification.error({
+        message: "Thông báo",
+        description: "Không thể cập nhật sản phẩm",
+      });
     }
   }
 );
-export const listProduct = createAsyncThunk(
-  "products/listProduct",
-  async () => {
-    try {
-      const { data } = await list();
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
+
 
 export const listProductWithCate = createAsyncThunk(
   "products/listProductWithCate",

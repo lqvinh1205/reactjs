@@ -1,4 +1,4 @@
-import { Button, Row, Table, Typography } from "antd";
+import { Button, Modal, Row, Table, Typography } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { listProduct, removeProduct } from "../productSlice";
@@ -9,7 +9,21 @@ type Props = {};
 const ListProducts = (props: Props) => {
   const products = useAppSelector((data: any) => data.product.values);
   const dispath = useAppDispatch();
+  const [modal, contextHolder] = Modal.useModal();
+  const config = {
+    title: 'Use Hook!',
+    content: "Bạn có chắc muốn xóa",
+  };
 
+
+  const handleRemove = (id: any) => {
+    Modal.confirm({
+      title: "Thông báo",
+      content: "Bạn có chắc muốn xóa",
+      onOk: () => dispath(removeProduct(id))
+    })
+    
+  }
   const columns: any = [
     {
       title: "Name Product",
@@ -50,7 +64,7 @@ const ListProducts = (props: Props) => {
             type="primary"
             danger
             icon={<DeleteOutlined />}
-            onClick={() => dispath(removeProduct(id))}
+            onClick={() => handleRemove(id)}
           ></Button>
         </Row>
       ),

@@ -1,11 +1,20 @@
 import React from "react";
-import { Form, Input, Button, Checkbox, Row, Select, Upload } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Checkbox,
+  Row,
+  Select,
+  Upload,
+  notification,
+} from "antd";
 import { FormInstance } from "antd/es/form";
 import { Typography } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./AddProduct.css";
-import { useDispatch } from "react-redux";
 import { addProduct } from "../productSlice";
+import { useAppDispatch } from "../../../app/hooks";
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -13,10 +22,9 @@ const { Option } = Select;
 type Props = {};
 
 const AddProduct = (props: Props) => {
-  const dispath = useDispatch();
+  const dispath = useAppDispatch();
   const onFinish = (product: any) => {
-      console.log("page Add: ", product);
-      
+    console.log("page Add: ", product);
     dispath(addProduct(product));
   };
 
@@ -77,10 +85,7 @@ const AddProduct = (props: Props) => {
           <Input placeholder="Price" />
         </Form.Item>
 
-        <Form.Item
-          label="Description"
-          name="description"
-        >
+        <Form.Item label="Description" name="description">
           <Input placeholder="Description" />
         </Form.Item>
 

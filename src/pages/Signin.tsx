@@ -9,6 +9,7 @@ import {
   Avatar,
   Row,
   Col,
+  notification,
 } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "../features/auth/authSlice";
@@ -25,6 +26,10 @@ const Signin = (props: Props) => {
       console.log(user);
       dispatch(signIn(user)).then(() => {
         navigate("/admin");
+        notification.success({
+          message: "Thông báo",
+          description: "Đăng nhập thành công!"
+        })
       });
     } catch (error) {
       console.log(error);

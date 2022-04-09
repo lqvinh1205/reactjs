@@ -3,17 +3,8 @@ import instance from "./instance";
 
 const isUser = getLs("user");
 
-export const create = async (user) => {
-  const url = `/category/${isUser?.user._id}`;
-  return instance.post(url, user, {
-    headers: {
-      "Authorization": `Bearer ${isUser?.token}`,
-    },
-  });
-};
-
 export const list = async () => {
-  const url = `/category/${isUser?.user._id}`;
+  const url = `/category`;
   return instance.get(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
@@ -22,8 +13,17 @@ export const list = async () => {
 };
 
 export const read = async (id) => {
-  const url = `/category/${id}/${isUser?.user._id}`;
+  const url = `/category/${id}`;
   return instance.get(url, {
+    headers: {
+      "Authorization": `Bearer ${isUser?.token}`,
+    },
+  });
+};
+
+export const create = async (user) => {
+  const url = `/category/${isUser?.user._id}`;
+  return instance.post(url, user, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },
