@@ -1,0 +1,47 @@
+.product-page-content {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 3%;
+}
+.product-page{
+     position: relative;
+}
+.product-page-title {
+    color: var(--color-white) !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+    padding: 20px 0;
+}
+.product-mene-side-title {
+    color: var(--color-white) !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    /* position: relative; */
+}
+.product-menu-side {
+    background: var(--color-dark-transparent) !important;
+    border-radius: 10px;
+    position: sticky;
+    top: 90px;
+    box-shadow: 0 0 10px 1px var(--color-dark-transparent-2) !important;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+.product-menu-side-logo {
+    padding: 25px;
+    padding-left: 0;
+}
+.product-menu-side .ant-typography {
+    color: var(--color-white);
+}
+.product-page-content .featured-lux-products-items {
+    width: 31%;
+}
+.product-menu-side-search {
+    color: var(--color-white) !important;
+    padding: 0;
+}
+span.anticon.anticon-search {
+    display: flex;
+    justify-content: center;
+}

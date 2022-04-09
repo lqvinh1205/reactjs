@@ -1,0 +1,25 @@
+.brand-logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 0;
+    gap: 7%;
+}
+.brand-logo-items {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    filter: brightness(50%);
+
+}
+.brand-logo-items:hover {
+    filter: brightness(100%);
+}
+
+.brand-logo-items img{
+    width: 100%;
+}

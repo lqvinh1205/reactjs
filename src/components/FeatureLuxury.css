@@ -1,0 +1,47 @@
+.featured-lux-title h4{
+    padding-top: 10%;
+    color: var(--color-white);
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 5%;
+}
+.featured-lux-logo {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    color: var(--color-white);
+    padding-bottom: 5%;
+}
+.featured-lux-logo button{
+    color: var(--color-white);
+    border: none;
+}
+.featured-lux-logo button:hover{
+    color: var(--color-white);
+}
+.featured-lux-logo-cate {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--color-dark-transparent);
+}
+.featured-lux-logo-cate:hover {
+    background-color: var(--color-blue);
+    cursor: pointer;
+}
+.featured-lux-logo-cate img {
+    width: 100%;
+    transform: scale(.7);
+}
+.featured-lux-logo .ant-btn:focus {
+    background-color: var(--color-blue);
+}
+.featured-lux-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8%;
+}
