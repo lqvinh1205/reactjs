@@ -14,19 +14,24 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "../features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { getLs } from "../ultis/localstogare";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signin = (props: Props) => {
   const dispatch = useAppDispatch();
-  const isSignin = useAppSelector((state) => state.auth.isSignin);
+  // const isSignin = useAppSelector((state) => state.auth.isSignin);
   const navigate = useNavigate();
   
   const onFinish = (user: any) => {
-    dispatch(signIn(user)).then(() =>
-      isSignin ? navigate("/admin") : navigate("/signin")
-    );
+    try {
+      dispatch(signIn(user)).then(() => navigate("/admin") )
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
