@@ -1,9 +1,9 @@
-import { Button, notification } from "antd";
-import React, { useEffect } from "react";
+import {  ShoppingCartOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
 import { signOut } from "../features/auth/authSlice";
-import { getLs, removeLs } from "../ultis/localstogare";
+import { getLs } from "../ultis/localstogare";
 import "./HeaderTop.css";
 
 type Props = {};
@@ -48,9 +48,10 @@ const HeaderTop = (props: Props) => {
           </li>
         </ul>
       </div>
-      <div className="btn-login">
+      <div className="btn-login flex gap-2 justify-end">
         <Link to="/carts">
-          <Button type="dashed" ghost>
+          <Button type="dashed" ghost className="btn-header-top">
+            <ShoppingCartOutlined />
             Cart
           </Button>
         </Link>
