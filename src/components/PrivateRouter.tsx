@@ -16,7 +16,6 @@ const PrivateRouter = (props: PrivateRouterProps) => {
         return <Navigate to='/signin'/>
     }
     return props.children
-
 }
 
 export default PrivateRouter
