@@ -7,9 +7,11 @@ type PrivateRouterProps = {
 }
 
 const PrivateRouter = (props: PrivateRouterProps) => {
-    const isUser = getLs('user').user.role
-    if(!isUser){
-        return <Navigate to='/'/>
+    if(getLs('user')) {
+        const isUser = getLs('user').user.role
+        if(!isUser){
+            return <Navigate to='/'/>
+        }
     }
     return props.children
 }

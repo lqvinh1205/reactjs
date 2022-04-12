@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, notification } from "antd";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getLs, removeLs } from "../ultis/localstogare";
@@ -12,6 +12,9 @@ const HeaderTop = (props: Props) => {
     const signOut = () => {
         removeLs('user')
         navigate("/")
+        notification.success({
+          message: "Đăng xuất thành công"
+        })
     }
 
   return (

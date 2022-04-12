@@ -9,12 +9,6 @@ type Props = {};
 const ListProducts = (props: Props) => {
   const products = useAppSelector((data: any) => data.product.values);
   const dispath = useAppDispatch();
-  const [modal, contextHolder] = Modal.useModal();
-  const config = {
-    title: 'Use Hook!',
-    content: "Bạn có chắc muốn xóa",
-  };
-
 
   const handleRemove = (id: any) => {
     Modal.confirm({

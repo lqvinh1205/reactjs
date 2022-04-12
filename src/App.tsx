@@ -18,13 +18,17 @@ import Products from "./pages/Products";
 import AddUser from "./features/users/pages/AddUser";
 import EditUser from "./features/users/pages/EditUser";
 import ListUsers from "./features/users/pages/ListUsers";
+import DetailProduct from "./components/DetailProduct/DetailProduct";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="products" element={<Products />} />
+        <Route path="products" >
+          <Route index element={<Products />} />
+          <Route path=":id" element={<DetailProduct />} />
+        </Route>
       </Route>
       <Route
         path="admin"

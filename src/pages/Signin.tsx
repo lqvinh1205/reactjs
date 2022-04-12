@@ -13,27 +13,20 @@ import {
 } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "../features/auth/authSlice";
-import { useAppDispatch } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signin = (props: Props) => {
   const dispatch = useAppDispatch();
+  const isSignin = useAppSelector((state) => state.auth.isSignin);
   const navigate = useNavigate();
+  
   const onFinish = (user: any) => {
-    try {
-      console.log(user);
-      dispatch(signIn(user)).then(() => {
-        navigate("/admin");
-        notification.success({
-          message: "Thông báo",
-          description: "Đăng nhập thành công!"
-        })
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(signIn(user)).then(() =>
+      isSignin ? navigate("/admin") : navigate("/signin")
+    );
   };
 
   const onFinishFailed = (errorInfo: any) => {
