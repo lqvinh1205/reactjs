@@ -1,16 +1,21 @@
 import { Button, notification } from "antd";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../app/hooks";
 import { signOut } from "../features/auth/authSlice";
-import { getLs } from "../ultis/localstogare";
+import { getLs, removeLs } from "../ultis/localstogare";
 import "./HeaderTop.css";
 
 type Props = {};
 
 const HeaderTop = (props: Props) => {
-  const isSignin = getLs("user");
-  const dispatch = useDispatch();
+    const isSignin = getLs("user")
+    const dispath = useAppDispatch()
+    const navigate = useNavigate()
+    const signOuts = () => {
+        dispath(signOut())
+        navigate("/")
+    }
 
   return (
     <div className="header-top container-main">
@@ -27,17 +32,17 @@ const HeaderTop = (props: Props) => {
         <ul>
           <li>
             {/* <a href="#pro-new">Home</a> */}
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to="/products">Shop</Link>
+            <Link to='/products'>Shop</Link>
           </li>
           <li>
             <a href="#carousel-cars">Populor</a>
           </li>
           <li>
             <a href="#more-future">About</a>
-          </li>
+          </li>      
           <li>
             <a href="#featured-lux">Featured</a>
           </li>
@@ -46,7 +51,7 @@ const HeaderTop = (props: Props) => {
       <div className="btn-login">
         {isSignin ? (
           <Link to="/">
-            <Button type="dashed" ghost onClick={() => dispatch(signOut())}>
+            <Button type="dashed" ghost onClick={()=> signOuts()}>
               Log-out
             </Button>
           </Link>
