@@ -1,14 +1,10 @@
 import { Button, Modal, Row, Table, Typography } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { listProduct, removeProduct } from "../productSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 type Props = {};
 
-const ListProducts = (props: Props) => {
-  const products = useAppSelector((data: any) => data.product.values);
-  const dispath = useAppDispatch();
+const Carts = (props: Props) => {
 
   const handleRemove = (id: any) => {
     Modal.confirm({
@@ -94,4 +90,4 @@ const ListProducts = (props: Props) => {
   );
 };
 
-export default ListProducts;
+export default Carts;
