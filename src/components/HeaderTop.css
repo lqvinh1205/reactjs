@@ -45,3 +45,10 @@
     width: 20%;
     text-align: end;
 }
+.btn-header-top {
+    display: flex;
+    align-items: center;
+}
+.btn-header-top svg {
+    font-size: 20px;
+}
