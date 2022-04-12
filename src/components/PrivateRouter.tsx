@@ -12,6 +12,8 @@ const PrivateRouter = (props: PrivateRouterProps) => {
         if(!isUser){
             return <Navigate to='/'/>
         }
+    }else {
+        return <Navigate to='/signin'/>
     }
     return props.children
 }

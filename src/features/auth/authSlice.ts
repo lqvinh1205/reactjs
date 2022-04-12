@@ -1,17 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { notification } from "antd";
 import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 import { signin } from "../../api/auth";
 import { removeLs, setLs } from "../../ultis/localstogare";
-
 export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
   try {
-    const { data } = await signin(user);
-    setLs("user", data);
-    notification.success({
-      message: "Thông báo",
-      description: "Đăng nhập thành công!",
-    });
+    const {data, status} = await signin(user);
+    console.log(data);
+    if(status === 200) {
+      setLs("user", data);
+      notification.success({
+        message: "Thông báo",
+        description: "Đăng nhập thành công!",
+      });
+    }
   } catch (error) {
     const err = error as AxiosError;
     if (err.response) {

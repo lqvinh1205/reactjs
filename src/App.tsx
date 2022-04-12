@@ -19,6 +19,7 @@ import AddUser from "./features/users/pages/AddUser";
 import EditUser from "./features/users/pages/EditUser";
 import ListUsers from "./features/users/pages/ListUsers";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
+import Carts from "./features/Cart/Carts";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         <Route path="products" >
           <Route index element={<Products />} />
           <Route path=":id" element={<DetailProduct />} />
+        </Route>
+        <Route path="carts" >
+          <Route index element={<Carts />} />
         </Route>
       </Route>
       <Route
