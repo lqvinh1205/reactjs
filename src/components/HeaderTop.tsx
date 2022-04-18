@@ -1,4 +1,4 @@
-import {  ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
@@ -48,19 +48,22 @@ const HeaderTop = (props: Props) => {
           </li>
         </ul>
       </div>
-      <div className="btn-login flex gap-2 justify-end">
-        <Link to="/carts">
-          <Button type="dashed" ghost className="btn-header-top">
-            <ShoppingCartOutlined />
-            Cart
-          </Button>
-        </Link>
+      <div className="btn-login">
         {isSignin ? (
-          <Link to="/">
-            <Button type="dashed" ghost onClick={() => signOuts()}>
-              Log-out
-            </Button>
-          </Link>
+          <div className="flex gap-2 justify-end">
+            <Link to={`/carts/${isSignin.user._id}`}>
+              <Button type="dashed" ghost className="btn-header-top">
+                <ShoppingCartOutlined />
+                Cart
+              </Button>
+            </Link>
+
+            <Link to="/">
+              <Button type="dashed" ghost onClick={() => signOuts()}>
+                Log-out
+              </Button>
+            </Link>
+          </div>
         ) : (
           <Link to="/signin">
             <Button type="dashed" ghost>

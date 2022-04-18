@@ -11,6 +11,14 @@ export const list = async () => {
     },
   });
 };
+export const listPagination = async (page, perpage) => {
+  const url = `/products?_page=${page}&_perpage=${perpage}`;
+  return instance.get(url, {
+    headers: {
+      "Authorization": `Bearer ${isUser?.token}`,
+    },
+  });
+};
 
 export const read = async (id) => {
   const url = `/products/${id}`;
@@ -48,19 +56,17 @@ export const update = async (product) => {
   });
 };
 
-export const search = async (value) => {
-  const url = `/products_search?name=${value.value}`;
-  return instance.post(url, value, {
+export const search = async (text) => {
+  const url = `/products?search=${text}`;
+  return instance.get(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },
   });
 };
-
-
-export const range = async (value) => {
-  const url = `/products_pricerange`;
-  return instance.post(url, value, {
+export const range = async (start, end) => {
+  const url = `/products?gte=${start}&lte=${end}`;
+  return instance.get(url, {
     headers: {
       "Authorization": `Bearer ${isUser?.token}`,
     },

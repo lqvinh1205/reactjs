@@ -4,6 +4,7 @@ import { read as readCate } from "../../api/category";
 import {
   create,
   list,
+  listPagination,
   range,
   read,
   remove,
@@ -18,6 +19,20 @@ export const listProduct = createAsyncThunk(
   async () => {
     try {
       const { data } = await list();
+      return data;
+    } catch (error) {
+      notification.error({
+        message: "Thông báo",
+        description: "Không thể lấy danh sách sản phẩm",
+      });
+    }
+  }
+);
+export const listProductPagination = createAsyncThunk(
+  "products/listProductPagination",
+  async (value: any) => {
+    try {
+      const { data } = await listPagination(value[0], value[1]);
       return data;
     } catch (error) {
       notification.error({
@@ -132,7 +147,7 @@ export const rangePrice = createAsyncThunk(
   "products/rangePrice",
   async (value: any) => {
     try {
-      const { data } = await range(value);
+      const { data } = await range(value[0], value[1]);
       return data;
     } catch (error) {
       console.log(error);
@@ -159,6 +174,9 @@ const productSlice = createSlice({
       );
     });
     builder.addCase(listProduct.fulfilled, (state: any, action: any) => {
+      state.values = action.payload;
+    });
+    builder.addCase(listProductPagination.fulfilled, (state: any, action: any) => {
       state.values = action.payload;
     });
     builder.addCase(

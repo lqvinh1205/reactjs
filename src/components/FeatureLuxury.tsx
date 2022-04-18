@@ -11,7 +11,7 @@ import ProductItems from "./ProductItems";
 type Props = {};
 
 const FeatureLuxury = (props: Props) => {
-  let products = useAppSelector((data: any) => data.product.values);
+  let {products} = useAppSelector((data: any) => data.product.values);
   const categories = useAppSelector((data: any) => data.category.values);
   const dispath = useAppDispatch();
 

@@ -9,6 +9,7 @@ type Props = {};
 const ListProducts = (props: Props) => {
   const products = useAppSelector((data: any) => data.product.values);
   const dispath = useAppDispatch();
+console.log(products);
 
   const handleRemove = (id: any) => {
     Modal.confirm({
@@ -67,7 +68,6 @@ const ListProducts = (props: Props) => {
 
   useEffect(() => {
     dispath(listProduct());
-    console.log(products);
   }, []);
   return (
     <>
@@ -76,9 +76,10 @@ const ListProducts = (props: Props) => {
           <Button type="primary">Add Product</Button>
         </Link>
       </Row>
+      
       <Table
         columns={columns}
-        dataSource={products}
+        dataSource={products.products}
         bordered
         title={() => (
           <Typography.Title level={3}>List Products</Typography.Title>

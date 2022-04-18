@@ -1,32 +1,46 @@
-import { Button, Modal, Row, Table, Typography } from "antd";
-import React, { useEffect, useState } from "react";
+import { Button, Modal, notification, Row, Table, Typography } from "antd";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { EditOutlined, DeleteOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { getDetailCart } from "./CartSlice";
+import { getCarts } from "./CartSlice";
+import { getLs } from "../../ultis/localstogare";
+import { update } from "../../api/cart";
 type Props = {};
 
 const Carts = (props: Props) => {
-  const cartID = useAppSelector((state: any) => state.cart.cartId)
-  console.log(cartID);
-  const dispath = useAppDispatch()
+  const carts = useAppSelector((state: any) => state.cart.carts);
+  console.log(carts.items);
+  const {user} = getLs('user')  
+
+  const dispath = useAppDispatch();
   const handleRemove = (id: any) => {
+    notification.success({
+      message: "Xóa thành công",
+    });
+  };
+
+  const handleOrder = () => {
     Modal.confirm({
       title: "Thông báo",
-      content: "Bạn có chắc muốn xóa",
-      onOk: () => {}
-    })
-    
-  }
+      content: "Bạn có chắc muốn đặt hàng",
+      onOk: () => update(carts),
+    });
+  };
   const columns: any = [
     {
       title: "Name Product",
-      dataIndex: "name",
-      render: (text: any) => <a>{text}</a>,
+      render: (carts: any) => <span>{carts.productId.name}</span>,
     },
     {
       title: "Images",
-      dataIndex: "category",
+      render: (carts: any) => (
+        <img src={carts.productId.images} className="w-28" alt="" />
+      ),
     },
     {
       title: "Price",
@@ -35,7 +49,11 @@ const Carts = (props: Props) => {
     },
     {
       title: "Quantity",
-      dataIndex: "technology",
+      dataIndex: "quantity",
+    },
+    {
+      title: "Total",
+      dataIndex: "total",
     },
     {
       title: "Action",
@@ -58,17 +76,18 @@ const Carts = (props: Props) => {
   ];
 
   useEffect(() => {
-    dispath(getDetailCart());
-    // console.log(products);
-  }, []);
+    dispath(getCarts(user._id));
+  }, [dispath]);
   return (
     <div className=" container-main pt-[120px]">
       <Table
         columns={columns}
-        // dataSource={products}
+        dataSource={carts.items}
         bordered
         title={() => (
-          <Typography.Title level={3} className="flex items-center gap-2"><ShoppingCartOutlined /> Carts</Typography.Title>
+          <Typography.Title level={3} className="flex items-center gap-2">
+            <ShoppingCartOutlined /> Carts
+          </Typography.Title>
         )}
         pagination={{
           // total: products.lenght,
@@ -77,6 +96,9 @@ const Carts = (props: Props) => {
           pageSizeOptions: [5, 6, 7],
         }}
       />
+      <Button onClick={handleOrder} type="primary">
+        Order
+      </Button>
     </div>
   );
 };

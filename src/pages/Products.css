@@ -1,7 +1,7 @@
 .product-page-content {
     display: flex !important;
     flex-wrap: wrap;
-    gap: 3%;
+    gap: 3.5%;
 }
 .product-page{
      position: relative;

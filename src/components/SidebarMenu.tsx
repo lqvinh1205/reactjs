@@ -17,12 +17,14 @@ const SidebarMenu = (props: Props) => {
   const categories = useAppSelector((data: any) => data.category.values);
   const dispath = useAppDispatch();
   const onSearch = (value: any) => {
-    dispath(searchProducts({ value: value }));
+    console.log(value);
+    
+    dispath(searchProducts(value));
   };
 
   function onAfterChange(value: any) {
-    console.log("onAfterChange: ", value);
-      dispath(rangePrice({range: value}))
+    console.log("onAfterChange: ", value[1]);
+      dispath(rangePrice(value))
   }
   return (
     <>
