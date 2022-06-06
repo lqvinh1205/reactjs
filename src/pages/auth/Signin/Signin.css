@@ -48,3 +48,12 @@
   .ant-input-number-handler-up-inner svg{
   color: black;
 }
+/* Change the white to any color */
+.form-signin input:-webkit-autofill,
+.form-signin input:-webkit-autofill:hover, 
+.form-signin input:-webkit-autofill:focus, 
+.form-signin input:-webkit-autofill:active{
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: white !important;
+}
