@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { notification } from "antd";
 import { AxiosError } from "axios";
-import { signin } from "../api/auth";
+import { signin, signup } from "../api/auth";
 import { removeLs, setLs } from "../../shared/ultis/localstogare";
 export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
   try {
-    const {data, status} = await signin(user);
-    console.log(data);
-    if(status === 200) {
+    const { data, status } = await signin(user);
+    if (status === 200) {
       setLs("user", data);
       notification.success({
         message: "Thông báo",
@@ -23,9 +22,14 @@ export const signIn = createAsyncThunk("auth/signIn", async (user: any) => {
     }
   }
 });
+export const signUp = createAsyncThunk("auth/signUp", async (user: any) => {
+  try {
+    await signup(user);
+  } catch (error) {}
+});
 // export const signOut = createAsyncThunk("auth/signIn", async () => {
 //   try {
-    
+
 //   } catch (error) {
 //     const err = error as AxiosError;
 //     if (err.response) {
@@ -48,7 +52,7 @@ const authSlice = createSlice({
       notification.success({
         message: "Đăng xuất thành công",
       });
-    }
+    },
   },
   extraReducers: (builder: any) => {
     builder.addCase(signIn.fulfilled, (state: any, action: any) => {
@@ -57,5 +61,5 @@ const authSlice = createSlice({
     });
   },
 });
-export const { signOut } = authSlice.actions
+export const { signOut } = authSlice.actions;
 export default authSlice.reducer;
