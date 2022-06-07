@@ -8,6 +8,13 @@ export const addUsers = createAsyncThunk(
     return data;
   }
 );
+// export const signupUser = createAsyncThunk(
+//   "users/addUsers",
+//   async (user: any) => {
+//     const { data } = await create(user);
+//     return data;
+//   }
+// );
 export const readUsers = createAsyncThunk(
   "users/readUsers",
   async (id: any) => {

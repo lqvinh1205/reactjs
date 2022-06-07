@@ -11,16 +11,18 @@ import {
   Col,
   InputNumber,
 } from "antd";
-import { addUsers } from "../../../core/features/userSlice";
+import { signUp } from "../../../core/features/authSlice";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../core/app/hooks";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signup = (props: Props) => {
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   const onFinish = (user: any) => {
-    dispatch(addUsers(user));
+    dispatch(signUp(user)).then(() => navigate("/signin"));
     console.log(user);
   };
 
