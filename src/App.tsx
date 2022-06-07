@@ -1,25 +1,25 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import "antd/dist/antd.css";
-import WebsiteLayout from "./pages/layouts/WebsiteLayout";
-import AdminLayout from "./pages/layouts/AdminLayout";
-import HomePage from "./pages/HomePage";
-import Dashboard from "./pages/admin/Dashboard";
-import ListProducts from "./features/products/pages/ListProducts";
-import Signup from "./pages/Signup";
-import Signin from "./pages/Signin";
-import AddProduct from "./features/products/pages/AddProduct";
-import EditProduct from "./features/products/pages/EditProduct";
-import PrivateRouter from "./components/PrivateRouter";
-import ListCategory from "./features/category/pages/ListCategory";
-import AddCategory from "./features/category/pages/AddCategory";
-import EditCategory from "./features/category/pages/EditCategory";
-import Products from "./pages/Products";
-import AddUser from "./features/users/pages/AddUser";
-import EditUser from "./features/users/pages/EditUser";
-import ListUsers from "./features/users/pages/ListUsers";
-import DetailProduct from "./components/DetailProduct/DetailProduct";
-import Carts from "./features/Cart/Carts";
+import WebsiteLayout from "./layouts/WebsiteLayout";
+import AdminLayout from "./layouts/AdminLayout";
+import HomePage from "./pages/customer/HomePage/HomePage";
+import Products from "./pages/customer/Products/Products";
+import DetailProduct from "./components/customer/DetailProduct/DetailProduct";
+import Carts from "./pages/customer/Cart/Carts";
+import PrivateRouter from "./components/admin/PrivateRouter/PrivateRouter";
+import Dashboard from "./components/admin/Dashboard/Dashboard";
+import ListProducts from "./components/admin/Product/ListProducts";
+import AddProduct from "./components/admin/Product/AddProduct";
+import EditProduct from "./components/admin/Product/EditProduct";
+import ListCategory from "./components/admin/Category/ListCategory";
+import AddCategory from "./components/admin/Category/AddCategory";
+import EditCategory from "./components/admin/Category/EditCategory";
+import ListUsers from "./components/admin/User/ListUsers";
+import AddUser from "./components/admin/User/AddUser";
+import EditUser from "./components/admin/User/EditUser";
+import Signup from "./pages/auth/Signup/Signup";
+import Signin from "./pages/auth/Signin/Signin";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route index element={<Products />} />
           <Route path=":id" element={<DetailProduct />} />
         </Route>
-        <Route path="carts" >
+        <Route path="carts/:userId" >
           <Route index element={<Carts />} />
         </Route>
       </Route>
