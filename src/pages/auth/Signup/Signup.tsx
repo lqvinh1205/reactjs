@@ -10,20 +10,33 @@ import {
   Row,
   Col,
   InputNumber,
+  notification,
 } from "antd";
-import { signUp } from "../../../core/features/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../core/app/hooks";
+import { signUp } from "../../../core/features/authSlice";
 const { Title, Text } = Typography;
 
 type Props = {};
 
 const Signup = (props: Props) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const onFinish = (user: any) => {
-    dispatch(signUp(user)).then(() => navigate("/signin"));
-    console.log(user);
+    try {
+      console.log(1);
+        dispatch(signUp(user)).then((res) => {
+          console.log(res);
+          
+          // if (res.payload !== undefined) {
+          //   navigate("/signin");
+          // }
+        });
+        
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {

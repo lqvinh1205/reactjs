@@ -26,7 +26,6 @@ const Signin = (props: Props) => {
   const onFinish = (user: any) => {
     try {
       dispatch(signIn(user)).then(() => navigate("/admin") )
-      
     } catch (error) {
       console.log(error);
       

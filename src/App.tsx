@@ -20,17 +20,25 @@ import AddUser from "./components/admin/User/AddUser";
 import EditUser from "./components/admin/User/EditUser";
 import Signup from "./pages/auth/Signup/Signup";
 import Signin from "./pages/auth/Signin/Signin";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.alert(`Chào mừng đến với Website !
+    *Chú ý: Website có thể tải chậm lần đầu tiên
+    
+    Welcome to Website!
+    *Note: Website may be slow to load the first time`);
+  }, []);
   return (
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="products" >
+        <Route path="products">
           <Route index element={<Products />} />
           <Route path=":id" element={<DetailProduct />} />
         </Route>
-        <Route path="carts/:userId" >
+        <Route path="carts/:userId">
           <Route index element={<Carts />} />
         </Route>
       </Route>
