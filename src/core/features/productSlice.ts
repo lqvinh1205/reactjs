@@ -46,7 +46,6 @@ export const listProductPagination = createAsyncThunk(
 export const readProduct = createAsyncThunk(
   "products/readProduct",
   async (id: any) => {
-    console.log(id);
     try {
       const { data } = await read(id);
       return data;

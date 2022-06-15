@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import instance from "../../../core/api/instance";
 import { useAppDispatch, useAppSelector } from "../../../core/app/hooks";
 import { getLs } from "../../../shared/ultis/localstogare";
@@ -10,20 +10,33 @@ import { readProduct } from "../../../core/features/productSlice";
 const DetailProduct = () => {
   const product = useAppSelector<any>((state) => state.product.valueOne);
   const dispath = useAppDispatch();
+  const navigate = useNavigate()
   const { id } = useParams();
-  let { user } = getLs("user")
   useEffect(() => {
     dispath(readProduct(id));
   }, []);
   console.log(product);
   const handleAddToCart = async (product: any) => {
-    instance.post("/cart", {productId: product._id, userId: user._id })
-    .then(() => {
-      Modal.success({
-        title: "Add to cart success"
+    if (getLs("user")) {
+      let { user } = getLs("user");
+      if (user) {
+        return instance
+          .post("/cart", { productId: product._id, userId: user._id })
+          .then(() => {
+            Modal.success({
+              title: "Add to cart success",
+            });
+          });
+      }
+    } else {
+      Modal.confirm({
+        title: "Bạn cần đăng nhập để thêm sản phẩm",
+        onOk: () => {
+          return navigate('/signin')
+        }
       })
-    })
-  }
+    }
+  };
   return (
     <div className="row machine-future container-main" id="machine-feature">
       <div className="machine-future-left flex items-center">
